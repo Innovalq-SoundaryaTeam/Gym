@@ -1,0 +1,24 @@
+{
+  "name": "pulse-fitness-template",
+  "version": "1.0.0",
+  "description": "PULSE — Local Gym & Fitness Centre HTML template. Full marketing site, member dashboard and admin dashboard built with Tailwind CSS.",
+  "private": true,
+  "scripts": {
+    "build:html": "node scripts/build.js",
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify",
+    "build": "npm run build:html && npm run build:css",
+    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch"
+  },
+  "keywords": [
+    "gym",
+    "fitness",
+    "html template",
+    "tailwindcss",
+    "dashboard"
+  ],
+  "author": "",
+  "license": "See LICENSE-README.txt",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

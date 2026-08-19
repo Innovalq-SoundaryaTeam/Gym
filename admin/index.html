@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Analytics · PULSE Fitness Studio</title>
+  <meta name="description" content="PULSE admin dashboard — analytics, users, orders and member messages." />
+  <meta name="theme-color" content="#0a0d10" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Admin — Analytics · PULSE Fitness Studio" />
+  <meta property="og:description" content="PULSE admin dashboard — analytics, users, orders and member messages." />
+  <meta property="og:image" content="../assets/images/banners/hero-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Admin — Analytics · PULSE Fitness Studio" />
+  <meta name="twitter:description" content="PULSE admin dashboard — analytics, users, orders and member messages." />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('pulse-theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+        var d = localStorage.getItem('pulse-dir');
+        if (d === 'rtl') document.documentElement.setAttribute('dir','rtl');
+      } catch(e){}
+    })();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-ink-50/60 dark:bg-ink-950">
+  
+  <aside data-sidebar class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-ink-100 bg-white transition-transform duration-300 dark:border-ink-800 dark:bg-ink-900 lg:translate-x-0 rtl:left-auto rtl:right-0 rtl:translate-x-full rtl:lg:translate-x-0">
+    <div class="flex items-center justify-between px-6 py-5">
+      <a href="../admin/index.html" class="flex items-center gap-2 text-ink-950 dark:text-white">
+        
+  <svg viewBox="0 0 180 40" class="h-6 w-auto" role="img" aria-label="PULSE Fitness Studio">
+    <g>
+      <rect x="0" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
+      <rect x="8" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
+      <rect x="16" y="17" width="10" height="6" rx="1.5" fill="#c4ff1e"/>
+      <rect x="28" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
+      <rect x="36" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
+    </g>
+    <text x="50" y="28" font-family="Sora, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="0.5" fill="currentColor">PULSE</text>
+  </svg>
+      </a>
+      <button data-sidebar-close class="text-ink-400 hover:text-ink-700 dark:hover:text-ink-200 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+    </div>
+    <span class="mx-6 mb-2 badge-volt w-fit">Admin Console</span>
+    <nav class="flex-1 space-y-1 overflow-y-auto px-4 py-2">
+      
+      <a href="index.html" class="side-link active">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><line x1="5" y1="21" x2="5" y2="11"/><line x1="12" y1="21" x2="12" y2="6"/><line x1="19" y1="21" x2="19" y2="14"/></svg>
+        Analytics
+      </a>
+      <a href="users.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.7 20c.8-3.4 3.3-5.5 6.3-5.5s5.5 2.1 6.3 5.5"/><circle cx="17" cy="8.5" r="2.6"/><path d="M15.8 14.8c2.3.4 4 2.2 4.6 5.2"/></svg>
+        Users
+      </a>
+      <a href="orders.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="5.5" y1="15" x2="9.5" y2="15"/></svg>
+        Orders
+      </a>
+      <a href="messages.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-5A8.5 8.5 0 1 1 21 12Z"/></svg>
+        Messages
+      </a>
+    </nav>
+    <div class="space-y-1 border-t border-ink-100 px-4 py-4 dark:border-ink-800">
+      <a href="../contact.html" class="side-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-5A8.5 8.5 0 1 1 21 12Z"/></svg>Help &amp; Support</a>
+      <a href="../index.html" class="side-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><polyline points="15 8 20 12 15 16"/><line x1="20" y1="12" x2="8" y2="12"/></svg>Exit to Site</a>
+    </div>
+  </aside>
+  <div data-sidebar-backdrop class="fixed inset-0 z-30 hidden bg-ink-950/50 lg:hidden"></div>
+  <div class="lg:pl-72 rtl:lg:pl-0 rtl:lg:pr-72">
+    
+  <header class="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-ink-100 bg-white/85 px-5 py-4 backdrop-blur-lg dark:border-ink-800 dark:bg-ink-950/85 sm:px-8">
+    <div class="flex items-center gap-3">
+      <button data-sidebar-toggle class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <h1 class="text-lg font-bold sm:text-xl">Admin — Analytics</h1>
+    </div>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="relative hidden sm:block">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg>
+        <input type="search" placeholder="Search…" class="input !py-2 !pl-10 w-52" />
+      </div>
+      
+  <button type="button" data-theme-toggle aria-label="Toggle dark / light mode"
+    class="relative flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 hover:border-ink-900 hover:text-ink-950 dark:border-ink-700 dark:text-ink-300 dark:hover:border-white dark:hover:text-white transition-colors">
+    <span data-theme-icon="light" class="absolute [&[data-active=false]]:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.5" x2="12" y2="4.2"/><line x1="12" y1="19.8" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.2" y2="12"/><line x1="19.8" y1="12" x2="22.5" y2="12"/><line x1="4.5" y1="4.5" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.5" y2="4.5"/></svg></span>
+    <span data-theme-icon="dark" class="absolute [&[data-active=false]]:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></span>
+  </button>
+      
+  <button type="button" data-dir-toggle aria-label="Toggle LTR / RTL layout"
+    class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 hover:border-ink-900 hover:text-ink-950 dark:border-ink-700 dark:text-ink-300 dark:hover:border-white dark:hover:text-white transition-colors" title="Toggle RTL / LTR">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg>
+  </button>
+      <button class="relative flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+        <span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-coral-500"></span>
+      </button>
+      <div class="relative" data-account-menu>
+        <button type="button" data-account-menu-trigger class="flex items-center gap-2 rounded-full border border-ink-200 py-1 pl-1 pr-3 dark:border-ink-700">
+          <img src="../assets/images/avatars/avatar-8.jpg" class="h-7 w-7 rounded-full object-cover" alt="Divya Suresh" />
+          <span class="hidden text-sm font-semibold sm:block">Divya Suresh</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-ink-400" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div data-account-menu-panel class="invisible absolute right-0 top-full z-40 mt-3 w-56 translate-y-1 rounded-2xl border border-ink-100 bg-white p-2 opacity-0 shadow-card transition-all duration-200 dark:border-ink-800 dark:bg-ink-900 dark:shadow-card-dark rtl:right-auto rtl:left-0">
+          <div class="border-b border-ink-100 px-3 py-2 dark:border-ink-800">
+            <p class="text-sm font-semibold">Divya Suresh</p>
+            <p class="text-xs text-ink-400">Admin Console</p>
+          </div>
+          <a href="../admin/index.html" class="menu-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1-4 3.8-6 7.5-6s6.5 2 7.5 6"/></svg>View Profile</a>
+          <a href="../admin/index.html" class="menu-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M4.2 7l1.7 1M18.1 16l1.7 1M4.2 17l1.7-1M18.1 8l1.7-1M4 12h2M18 12h2"/></svg>Account Settings</a>
+          <a href="../contact.html" class="menu-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-5A8.5 8.5 0 1 1 21 12Z"/></svg>Help &amp; Support</a>
+          <div class="my-1 border-t border-ink-100 dark:border-ink-800"></div>
+          <a href="../login.html" class="menu-link !text-coral-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><polyline points="15 8 20 12 15 16"/><line x1="20" y1="12" x2="8" y2="12"/></svg>Log Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+    <main class="px-5 py-8 sm:px-8">
+      
+  <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <h2 class="text-2xl font-bold">Studio Analytics</h2>
+      <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">Camden · Shoreditch · Greenwich — combined performance</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <select class="select w-44">
+        <option>Last 30 Days</option>
+        <option>Last 90 Days</option>
+        <option>This Year</option>
+      </select>
+      <button class="btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M12 4v12"/><polyline points="7 11.5 12 16 17 11.5"/><path d="M4 16.5v2A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5v-2"/></svg> Export Report</button>
+    </div>
+  </div>
+
+  <!-- KPI CARDS -->
+  <div class="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
+    
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="5.5" y1="15" x2="9.5" y2="15"/></svg></div>
+        <span class="flex items-center gap-1 text-xs font-bold text-volt-600 dark:text-volt-400">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="3 17 9.5 10.5 13.5 14.5 21 6"/><polyline points="15 6 21 6 21 12"/></svg>+12.4%
+        </span>
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">$84,210</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">Total Revenue</p>
+    </div>
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M2.7 20c.8-3.4 3.3-5.5 6.3-5.5s5.5 2.1 6.3 5.5"/><circle cx="17" cy="8.5" r="2.6"/><path d="M15.8 14.8c2.3.4 4 2.2 4.6 5.2"/></svg></div>
+        <span class="flex items-center gap-1 text-xs font-bold text-volt-600 dark:text-volt-400">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="3 17 9.5 10.5 13.5 14.5 21 6"/><polyline points="15 6 21 6 21 12"/></svg>+3.1%
+        </span>
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">1,240</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">Active Members</p>
+    </div>
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1-4 3.8-6 7.5-6s6.5 2 7.5 6"/></svg></div>
+        <span class="flex items-center gap-1 text-xs font-bold text-volt-600 dark:text-volt-400">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="3 17 9.5 10.5 13.5 14.5 21 6"/><polyline points="15 6 21 6 21 12"/></svg>+18.6%
+        </span>
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">86</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">New Signups</p>
+    </div>
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><polyline points="3 12 8 12 10 6 14 18 16 12 21 12"/></svg></div>
+        <span class="flex items-center gap-1 text-xs font-bold text-coral-500">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="3 7 9.5 13.5 13.5 9.5 21 18"/><polyline points="15 18 21 18 21 12"/></svg>-2.3%
+        </span>
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">78%</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">Class Fill Rate</p>
+    </div>
+  </div>
+
+  <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div class="card p-6 lg:col-span-2">
+      <div class="flex items-center justify-between">
+        <p class="font-bold">Revenue Trend</p>
+        <div class="flex items-center gap-3 text-xs">
+          <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-volt-400"></span>Memberships</span>
+          <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-azure-500"></span>Classes &amp; PT</span>
+        </div>
+      </div>
+      <div class="mt-4 h-72"><canvas id="revenueChart"></canvas></div>
+    </div>
+    <div class="card p-6">
+      <p class="font-bold">Membership Mix</p>
+      <div class="mt-4 h-56"><canvas id="planChart"></canvas></div>
+      <div class="mt-4 space-y-2 text-sm">
+        <div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full" style="background:#5bc6ff"></span>Basic</span><span class="font-semibold">312</span></div><div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full" style="background:#c4ff1e"></span>Pro</span><span class="font-semibold">624</span></div><div class="flex items-center justify-between"><span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full" style="background:#ff7a59"></span>Elite</span><span class="font-semibold">304</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div class="card p-6 lg:col-span-2">
+      <p class="font-bold">Class Attendance by Category</p>
+      <div class="mt-4 h-64"><canvas id="attendanceCatChart"></canvas></div>
+    </div>
+    <div class="card p-6">
+      <p class="font-bold">Recent Activity</p>
+      <div class="mt-4 space-y-4">
+        
+        <div class="flex items-start gap-3">
+          <div class="icon-tile !h-9 !w-9 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1-4 3.8-6 7.5-6s6.5 2 7.5 6"/></svg></div>
+          <div>
+            <p class="text-sm font-medium">New member: Meera Sharma</p>
+            <p class="text-xs text-ink-400">2 min ago</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="icon-tile !h-9 !w-9 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="5.5" y1="15" x2="9.5" y2="15"/></svg></div>
+          <div>
+            <p class="text-sm font-medium">Payment received — $59.00</p>
+            <p class="text-xs text-ink-400">18 min ago</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="icon-tile !h-9 !w-9 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div>
+            <p class="text-sm font-medium">HIIT Conditioning fully booked</p>
+            <p class="text-xs text-ink-400">1 hr ago</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="icon-tile !h-9 !w-9 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-5A8.5 8.5 0 1 1 21 12Z"/></svg></div>
+          <div>
+            <p class="text-sm font-medium">New enquiry from Kabir Singh</p>
+            <p class="text-xs text-ink-400">3 hrs ago</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="icon-tile !h-9 !w-9 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M12 4 2.5 20h19L12 4Z"/><line x1="12" y1="10" x2="12" y2="14.5"/><circle cx="12" cy="17.2" r="0.4" fill="currentColor" stroke="none"/></svg></div>
+          <div>
+            <p class="text-sm font-medium">Payment failed — Sara Ahmed</p>
+            <p class="text-xs text-ink-400">5 hrs ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP CLASSES TABLE -->
+  <div class="card mt-8 overflow-x-auto p-6">
+    <p class="font-bold">Top Performing Classes</p>
+    <table class="table-clean mt-4 min-w-[560px]">
+      <thead><tr><th>Class</th><th>Instructor</th><th>Avg. Fill Rate</th><th>Weekly Bookings</th><th>Rating</th></tr></thead>
+      <tbody>
+        <tr><td class="font-semibold">Strength Lab</td><td>Arjun Mehta</td><td>92%</td><td>168</td><td class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-volt-500" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5Z"/></svg>4.9</td></tr><tr><td class="font-semibold">HIIT Conditioning</td><td>Rohan Kapoor</td><td>88%</td><td>142</td><td class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-volt-500" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5Z"/></svg>4.8</td></tr><tr><td class="font-semibold">Power Yoga Flow</td><td>Priya Nair</td><td>81%</td><td>121</td><td class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-volt-500" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5Z"/></svg>4.9</td></tr><tr><td class="font-semibold">Zumba Dance Party</td><td>Sana Sheikh</td><td>76%</td><td>98</td><td class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-volt-500" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5Z"/></svg>4.7</td></tr><tr><td class="font-semibold">Spin & Sculpt</td><td>Isha Verma</td><td>69%</td><td>74</td><td class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-volt-500" aria-hidden="true"><path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9l6-.9L12 3.5Z"/></svg>4.6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var r = document.getElementById('revenueChart');
+      if (r && window.Chart) {
+        new Chart(r, {
+          type: 'line',
+          data: {
+            labels: ['Feb','Mar','Apr','May','Jun','Jul','Aug'],
+            datasets: [
+              { label: 'Memberships', data: [42000,44500,46200,49800,51200,53400,55600], borderColor: '#c4ff1e', backgroundColor: 'rgba(196,255,30,0.12)', fill: true, tension: 0.35 },
+              { label: 'Classes & PT', data: [18000,17200,19800,21400,20600,23100,24500], borderColor: '#2fb0ff', backgroundColor: 'rgba(47,176,255,0.10)', fill: true, tension: 0.35 },
+            ]
+          },
+          options: { plugins: { legend: { display: false } }, scales: { y: { ticks: { callback: (v) => '$' + v/1000 + 'k' } } } }
+        });
+      }
+      var p = document.getElementById('planChart');
+      if (p && window.Chart) {
+        new Chart(p, { type: 'doughnut', data: { labels: ['Basic','Pro','Elite'], datasets: [{ data: [312,624,304], backgroundColor: ['#5bc6ff','#c4ff1e','#ff7a59'], borderWidth: 0 }] }, options: { plugins: { legend: { display: false } }, cutout: '68%' } });
+      }
+      var a = document.getElementById('attendanceCatChart');
+      if (a && window.Chart) {
+        new Chart(a, {
+          type: 'bar',
+          data: { labels: ['Strength','Cardio','Yoga','Zumba','HIIT'], datasets: [{ data: [420,360,290,240,310], backgroundColor: '#c4ff1e', borderRadius: 6, maxBarThickness: 40 }] },
+          options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+        });
+      }
+    });
+  </script>
+  
+    </main>
+  </div>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Dashboard — Overview · PULSE Fitness Studio</title>
+  <meta name="description" content="PULSE member dashboard — book classes, track attendance and access your workout plans." />
+  <meta name="theme-color" content="#0a0d10" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Member Dashboard — Overview · PULSE Fitness Studio" />
+  <meta property="og:description" content="PULSE member dashboard — book classes, track attendance and access your workout plans." />
+  <meta property="og:image" content="../assets/images/banners/hero-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Member Dashboard — Overview · PULSE Fitness Studio" />
+  <meta name="twitter:description" content="PULSE member dashboard — book classes, track attendance and access your workout plans." />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('pulse-theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+        var d = localStorage.getItem('pulse-dir');
+        if (d === 'rtl') document.documentElement.setAttribute('dir','rtl');
+      } catch(e){}
+    })();
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-ink-50/60 dark:bg-ink-950">
+  
+  <aside data-sidebar class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-ink-100 bg-white transition-transform duration-300 dark:border-ink-800 dark:bg-ink-900 lg:translate-x-0 rtl:left-auto rtl:right-0 rtl:translate-x-full rtl:lg:translate-x-0">
+    <div class="flex items-center justify-between px-6 py-5">
+      <a href="../index.html" class="flex items-center gap-2 text-ink-950 dark:text-white">
+        
+  <svg viewBox="0 0 180 40" class="h-6 w-auto" style="direction:ltr" role="img" aria-label="PULSE Fitness Studio">
+    <g>
+      <rect x="0" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
+      <rect x="8" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
+      <rect x="16" y="17" width="10" height="6" rx="1.5" fill="#c4ff1e"/>
+      <rect x="28" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
+      <rect x="36" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
+    </g>
+    <text x="50" y="28" font-family="Sora, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="0.5" fill="currentColor" style="direction:ltr;unicode-bidi:bidi-override">PULSE</text>
+  </svg>
+      </a>
+      <button data-sidebar-close class="text-ink-400 hover:text-ink-700 dark:hover:text-ink-200 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></button>
+    </div>
+    <span class="mx-6 mb-2 badge-volt w-fit">Member Portal</span>
+    <nav class="flex-1 space-y-1 overflow-y-auto px-4 py-2">
+      
+      <a href="index.html" class="side-link active">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+        Overview
+      </a>
+      <a href="book-classes.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Book Classes
+      </a>
+      <a href="attendance.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><polyline points="3 12 8 12 10 6 14 18 16 12 21 12"/></svg>
+        Attendance
+      </a>
+      <a href="membership.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="5.5" y1="15" x2="9.5" y2="15"/></svg>
+        My Membership
+      </a>
+      <a href="workout-plans.html" class="side-link ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><polyline points="14 3 14 8 19 8"/></svg>
+        Workout Plans
+      </a>
+    </nav>
+    <div class="space-y-1 border-t border-ink-100 px-4 py-4 dark:border-ink-800">
+      <a href="../contact.html" class="side-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-5A8.5 8.5 0 1 1 21 12Z"/></svg>Help &amp; Support</a>
+      <a href="../index.html" class="side-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><polyline points="15 8 20 12 15 16"/><line x1="20" y1="12" x2="8" y2="12"/></svg>Exit to Site</a>
+    </div>
+  </aside>
+  <div data-sidebar-backdrop class="fixed inset-0 z-30 hidden bg-ink-950/50 lg:hidden"></div>
+  <div class="lg:pl-72 rtl:lg:pl-0 rtl:lg:pr-72">
+    
+  <header class="sticky top-0 z-20 flex items-center justify-between gap-4 border-b border-ink-100 bg-white/85 px-5 py-4 backdrop-blur-lg dark:border-ink-800 dark:bg-ink-950/85 sm:px-8">
+    <div class="flex items-center gap-3">
+      <button data-sidebar-toggle class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300 lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <h1 class="text-lg font-bold sm:text-xl">Member Dashboard — Overview</h1>
+    </div>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="relative hidden sm:block">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.2" y2="16.2"/></svg>
+        <input type="search" placeholder="Search…" class="input !py-2 !pl-10 w-52" />
+      </div>
+      
+  <button type="button" data-theme-toggle aria-label="Toggle dark / light mode"
+    class="relative flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 hover:border-ink-900 hover:text-ink-950 dark:border-ink-700 dark:text-ink-300 dark:hover:border-white dark:hover:text-white transition-colors">
+    <span data-theme-icon="light" class="absolute [&[data-active=false]]:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.5" x2="12" y2="4.2"/><line x1="12" y1="19.8" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.2" y2="12"/><line x1="19.8" y1="12" x2="22.5" y2="12"/><line x1="4.5" y1="4.5" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.5" y2="4.5"/></svg></span>
+    <span data-theme-icon="dark" class="absolute [&[data-active=false]]:hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></span>
+  </button>
+      
+  <button type="button" data-dir-toggle aria-label="Toggle LTR / RTL layout"
+    class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 hover:border-ink-900 hover:text-ink-950 dark:border-ink-700 dark:text-ink-300 dark:hover:border-white dark:hover:text-white transition-colors" title="Toggle RTL / LTR">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg>
+  </button>
+      <button class="relative flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true"><path d="M6 10a6 6 0 1 1 12 0c0 4 1.5 5.5 1.5 5.5H4.5S6 14 6 10Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
+        <span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-coral-500"></span>
+      </button>
+      <div class="relative" data-account-menu>
+        <button type="button" data-account-menu-trigger class="flex items-center gap-2 rounded-full border border-ink-200 py-1 pl-1 pr-3 dark:border-ink-700">
+          <img src="../assets/images/avatars/avatar-6.jpg" class="h-7 w-7 rounded-full object-cover" alt="Kabir Singh" />
+          <span class="hidden text-sm font-semibold sm:block">Kabir Singh</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-ink-400" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div data-account-menu-panel class="invisible absolute right-0 top-full z-40 mt-3 w-56 translate-y-1 rounded-2xl border border-ink-100 bg-white p-2 opacity-0 shadow-card transition-all duration-200 dark:border-ink-800 dark:bg-ink-900 dark:shadow-card-dark rtl:right-auto rtl:left-0">
+          <div class="border-b border-ink-100 px-3 py-2 dark:border-ink-800">
+            <p class="text-sm font-semibold">Kabir Singh</p>
+            <p class="text-xs text-ink-400">Member Portal</p>
+          </div>
+          <a href="../dashboard/membership.html" class="menu-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1-4 3.8-6 7.5-6s6.5 2 7.5 6"/></svg>View Profile</a>
+          <a href="../dashboard/membership.html" class="menu-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M4.2 7l1.7 1M18.1 16l1.7 1M4.2 17l1.7-1M18.1 8l1.7-1M4 12h2M18 12h2"/></svg>Account Settings</a>
+          <a href="../contact.html" class="menu-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.7 7.4L3 21l1.7-5A8.5 8.5 0 1 1 21 12Z"/></svg>Help &amp; Support</a>
+          <div class="my-1 border-t border-ink-100 dark:border-ink-800"></div>
+          <a href="../login.html" class="menu-link !text-coral-500"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><polyline points="15 8 20 12 15 16"/><line x1="20" y1="12" x2="8" y2="12"/></svg>Log Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+    <main class="px-5 py-8 sm:px-8">
+      
+  <!-- WELCOME BANNER -->
+  <div class="relative overflow-hidden rounded-3xl bg-ink-950 p-8 sm:p-10">
+    <img src="../assets/images/banners/hero-2.jpg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
+    <div class="relative flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+      <div>
+        <p class="text-sm text-ink-300">Welcome back,</p>
+        <h2 class="mt-1 text-3xl font-extrabold text-white">Kabir Singh 👋</h2>
+        <p class="mt-2 max-w-md text-sm text-ink-300">You're on a 12-day attendance streak — your next class, HIIT Conditioning, starts in 3 hours.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="../dashboard/book-classes.html" class="btn-primary">Book a Class</a>
+        <a href="../dashboard/workout-plans.html" class="btn-outline !border-white/30 !text-white hover:!bg-white/10">View Plan</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
+    
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><polyline points="3 12 8 12 10 6 14 18 16 12 21 12"/></svg></div>
+        <span class="flex items-center gap-1 text-xs font-bold text-volt-600 dark:text-volt-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="3 17 9.5 10.5 13.5 14.5 21 6"/><polyline points="15 6 21 6 21 12"/></svg></span>
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">18</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">This Month's Visits</p>
+      <p class="mt-2 text-[11px] text-ink-400 dark:text-ink-500">+4 vs last month</p>
+    </div>
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><path d="M12 3s5 4 5 9a5 5 0 1 1-10 0c0-1 .3-1.9.8-2.7.4 1 1.2 1.7 1.9 1.4-.6-2 0-4.6 2.3-7.7Z"/></svg></div>
+        <span class="flex items-center gap-1 text-xs font-bold text-volt-600 dark:text-volt-400"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><polyline points="3 17 9.5 10.5 13.5 14.5 21 6"/><polyline points="15 6 21 6 21 12"/></svg></span>
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">12 days</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">Attendance Streak</p>
+      <p class="mt-2 text-[11px] text-ink-400 dark:text-ink-500">Personal best: 21</p>
+    </div>
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">3</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">Upcoming Bookings</p>
+      <p class="mt-2 text-[11px] text-ink-400 dark:text-ink-500">Next: Today, 6 PM</p>
+    </div>
+    <div class="card p-5">
+      <div class="flex items-center justify-between">
+        <div class="icon-tile"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="5.5" y1="15" x2="9.5" y2="15"/></svg></div>
+        
+      </div>
+      <p class="mt-4 text-2xl font-extrabold">14 days</p>
+      <p class="text-xs text-ink-500 dark:text-ink-400">Plan Renews In</p>
+      <p class="mt-2 text-[11px] text-ink-400 dark:text-ink-500">Pro Plan · $59/mo</p>
+    </div>
+  </div>
+
+  <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <!-- ATTENDANCE CHART -->
+    <div class="card p-6 lg:col-span-2">
+      <div class="flex items-center justify-between">
+        <p class="font-bold">Weekly Attendance</p>
+        <span class="badge-volt">Last 8 weeks</span>
+      </div>
+      <div class="mt-4 h-64"><canvas id="attendanceChart"></canvas></div>
+    </div>
+
+    <!-- UPCOMING BOOKINGS -->
+    <div class="card p-6">
+      <div class="flex items-center justify-between">
+        <p class="font-bold">Upcoming Bookings</p>
+        <a href="../dashboard/book-classes.html" class="text-xs font-semibold text-volt-600 dark:text-volt-400">Manage</a>
+      </div>
+      <div class="mt-4 space-y-3">
+        
+        <div class="flex items-center gap-3 rounded-xl border border-ink-100 p-3 dark:border-ink-800">
+          <img src="../assets/images/thumbs/hiit.jpg" class="h-11 w-11 shrink-0 rounded-lg object-cover object-top" alt="" />
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-semibold">HIIT Conditioning</p>
+            <p class="text-xs text-ink-500 dark:text-ink-400">Today · 6:00 PM</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-xl border border-ink-100 p-3 dark:border-ink-800">
+          <img src="../assets/images/thumbs/yoga.jpg" class="h-11 w-11 shrink-0 rounded-lg object-cover object-top" alt="" />
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-semibold">Power Yoga Flow</p>
+            <p class="text-xs text-ink-500 dark:text-ink-400">Tomorrow · 8:30 AM</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 rounded-xl border border-ink-100 p-3 dark:border-ink-800">
+          <img src="../assets/images/thumbs/strength.jpg" class="h-11 w-11 shrink-0 rounded-lg object-cover object-top" alt="" />
+          <div class="min-w-0 flex-1">
+            <p class="truncate text-sm font-semibold">Strength Lab</p>
+            <p class="text-xs text-ink-500 dark:text-ink-400">Fri · 6:00 AM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <!-- MEMBERSHIP SNAPSHOT -->
+    <div class="card p-6">
+      <p class="font-bold">Membership Snapshot</p>
+      <div class="mt-4 flex items-center justify-between">
+        <span class="badge-volt">Pro Plan</span>
+        <span class="text-xs text-ink-500 dark:text-ink-400">Renews Sep 01, 2026</span>
+      </div>
+      <div class="mt-4 h-2 w-full overflow-hidden rounded-full bg-ink-100 dark:bg-ink-800">
+        <div class="h-full w-[54%] rounded-full bg-volt-400"></div>
+      </div>
+      <p class="mt-2 text-xs text-ink-500 dark:text-ink-400">14 of 30 days remaining in this cycle</p>
+      <a href="../dashboard/membership.html" class="btn-outline btn-block mt-5">Manage Membership</a>
+    </div>
+
+    <!-- THIS WEEK'S PLAN -->
+    <div class="card p-6">
+      <p class="font-bold">This Week's Workout Plan</p>
+      <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">Assigned by Coach Arjun Mehta</p>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-volt-600 dark:text-volt-400" aria-hidden="true"><polyline points="5 13 10 18 19 7"/></svg>Mon — Lower Body Strength</li><li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-volt-600 dark:text-volt-400" aria-hidden="true"><polyline points="5 13 10 18 19 7"/></svg>Wed — Upper Body Push</li><li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-volt-600 dark:text-volt-400" aria-hidden="true"><polyline points="5 13 10 18 19 7"/></svg>Fri — Full Body Conditioning</li>
+      </ul>
+      <a href="../dashboard/workout-plans.html" class="btn-primary btn-block mt-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M12 4v12"/><polyline points="7 11.5 12 16 17 11.5"/><path d="M4 16.5v2A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5v-2"/></svg> Download Plan</a>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="card p-6">
+      <p class="font-bold">Quick Actions</p>
+      <div class="mt-4 grid grid-cols-2 gap-3">
+        
+        <a href="../dashboard/book-classes.html" class="flex flex-col items-center gap-2 rounded-xl border border-ink-100 p-4 text-center hover:border-volt-400 dark:border-ink-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-volt-600 dark:text-volt-400" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="text-xs font-semibold">Book Class</span>
+        </a>
+        <a href="../dashboard/attendance.html" class="flex flex-col items-center gap-2 rounded-xl border border-ink-100 p-4 text-center hover:border-volt-400 dark:border-ink-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-volt-600 dark:text-volt-400" aria-hidden="true"><polyline points="3 12 8 12 10 6 14 18 16 12 21 12"/></svg>
+          <span class="text-xs font-semibold">View Attendance</span>
+        </a>
+        <a href="../dashboard/membership.html" class="flex flex-col items-center gap-2 rounded-xl border border-ink-100 p-4 text-center hover:border-volt-400 dark:border-ink-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-volt-600 dark:text-volt-400" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2.2"/><line x1="2.5" y1="10" x2="21.5" y2="10"/><line x1="5.5" y1="15" x2="9.5" y2="15"/></svg>
+          <span class="text-xs font-semibold">Billing</span>
+        </a>
+        <a href="#" class="flex flex-col items-center gap-2 rounded-xl border border-ink-100 p-4 text-center hover:border-volt-400 dark:border-ink-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-volt-600 dark:text-volt-400" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M4.2 7l1.7 1M18.1 16l1.7 1M4.2 17l1.7-1M18.1 8l1.7-1M4 12h2M18 12h2"/></svg>
+          <span class="text-xs font-semibold">Account Settings</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var ctx = document.getElementById('attendanceChart');
+      if (ctx && window.Chart) {
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+            datasets: [{
+              label: 'Visits',
+              data: [3,4,2,5,4,6,5,4],
+              backgroundColor: '#c4ff1e',
+              borderRadius: 6,
+              maxBarThickness: 28,
+            }]
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, ticks: { stepSize: 2 } } }
+          }
+        });
+      }
+    });
+  </script>
+  
+    </main>
+  </div>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

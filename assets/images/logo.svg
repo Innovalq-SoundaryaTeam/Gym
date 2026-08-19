@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" class="h-8 w-auto">
+  <g>
+    <rect x="0" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
+    <rect x="8" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
+    <rect x="16" y="17" width="10" height="6" rx="1.5" fill="#c4ff1e"/>
+    <rect x="28" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
+    <rect x="36" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
+  </g>
+  <text x="50" y="28" font-family="Sora, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="0.5" fill="currentColor">PULSE</text>
+</svg>
