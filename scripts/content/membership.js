@@ -82,6 +82,26 @@ module.exports = function membership(base) {
       </div>
     </section>
 
+    <!-- TESTIMONIALS -->
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+      <h2 class="section-title text-center !text-3xl">Members on switching to PULSE.</h2>
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        ${[
+          { q: "Pro plan pays for itself — unlimited classes plus a monthly PT session for less than my old gym's basic tier.", n: "Rhea Chatterjee", a: 2 },
+          { q: "No lock-in contract made trying PULSE an easy decision. I upgraded to Elite after month two.", n: "Aman Verma", a: 4 },
+          { q: "The nutrition coaching on Elite is worth it alone — my coach adjusts macros every check-in based on real progress.", n: "Nikhil Bhatt", a: 7 },
+        ].map((t) => `
+        <div class="card p-6">
+          <div class="flex gap-0.5 text-volt-500">${Array(5).fill(icon("star","h-4 w-4 fill-current")).join("")}</div>
+          <p class="mt-4 text-sm text-ink-600 dark:text-ink-300">"${t.q}"</p>
+          <div class="mt-5 flex items-center gap-3">
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 rounded-full object-cover" alt="${t.n}" />
+            <p class="text-sm font-bold">${t.n}</p>
+          </div>
+        </div>`).join("")}
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
       <h2 class="section-title text-center !text-3xl">Membership FAQs</h2>

@@ -3,7 +3,7 @@ const { icon, themeToggleButton, dirToggleButton, logoMark } = require("../parti
 module.exports = function comingSoon(base) {
   return `
   <div class="relative flex min-h-screen flex-col overflow-hidden bg-ink-950">
-    <img src="${base}assets/images/banners/hero-1.svg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
+    <img src="${base}assets/images/banners/hero-1.jpg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
     <div class="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-950/80 to-ink-950"></div>
 
     <header class="relative flex items-center justify-between px-6 py-6 sm:px-10">

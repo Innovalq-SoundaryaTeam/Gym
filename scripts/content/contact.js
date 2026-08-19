@@ -84,10 +84,57 @@ module.exports = function contact(base) {
           <div class="card p-6">
             <p class="font-bold">Follow us</p>
             <div class="mt-4 flex items-center gap-3">
-              ${["facebook","instagram","x","youtube","linkedin"].map((s) => `<a href="#" class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:border-volt-500 hover:text-volt-600 dark:border-ink-700 dark:text-ink-400">${icon(s,"h-4 w-4")}</a>`).join("")}
+              ${[["facebook","https://www.facebook.com/"],["instagram","https://www.instagram.com/"],["x","https://www.x.com/"],["youtube","https://www.youtube.com/"],["linkedin","https://www.linkedin.com/"]].map(([s,url]) => `<a href="${url}" target="_blank" rel="noopener" aria-label="${s}" class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:border-volt-500 hover:text-volt-600 dark:border-ink-700 dark:text-ink-400">${icon(s,"h-4 w-4")}</a>`).join("")}
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- BEFORE YOU VISIT -->
+    <section class="bg-ink-50 py-20 dark:bg-ink-900/40">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="eyebrow">Before You Visit</span>
+          <h2 class="section-title mt-4">A few things to know first.</h2>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          ${[
+            ["mapPin","Free Parking","Member parking and secure bike racks are available at every studio location."],
+            ["clock","Best Times to Visit","Studios are quietest before 9am and after 8pm — evenings 5–7pm are our busiest window."],
+            ["users","Front Desk Support","Our front desk team can help with sign-in, tours and trial class bookings, no appointment needed."],
+          ].map(([i,t,d]) => `
+          <div class="rounded-2xl border border-ink-100 bg-white p-7 text-center dark:border-ink-800 dark:bg-ink-900">
+            <div class="icon-tile mx-auto">${icon(i,"h-5 w-5")}</div>
+            <h3 class="mt-4 text-lg font-bold">${t}</h3>
+            <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">${d}</p>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <div class="text-center">
+        <span class="eyebrow">Contact FAQs</span>
+        <h2 class="section-title mt-4">Quick answers before you reach out.</h2>
+      </div>
+      <div class="mt-10 divide-y divide-ink-100 dark:divide-ink-800" data-accordion>
+        ${[
+          ["How quickly will I hear back?", "We reply to all messages within a few hours during studio hours, and by the next morning for messages sent overnight."],
+          ["Can I just walk in without contacting you first?", "Yes — walk-ins are always welcome during studio hours. Reaching out first just helps us have someone free to give you a proper tour."],
+          ["Do you offer corporate or group memberships?", "Yes, select 'Membership Enquiry' in the contact form and mention your group size — we'll follow up with corporate rates."],
+          ["I have a question about an existing booking.", "For booking or attendance questions, your fastest option is the member dashboard — but you're welcome to reach out here too."],
+        ].map((f, i) => `
+        <div data-accordion-item data-open="${i===0}">
+          <button data-accordion-trigger class="flex w-full items-center justify-between py-4 text-left font-semibold">
+            ${f[0]}
+            <span data-accordion-icon class="transition-transform duration-200 ${i===0 ? "rotate-45" : ""}">${icon("plus","h-5 w-5 text-volt-600 dark:text-volt-400")}</span>
+          </button>
+          <div data-accordion-panel class="overflow-hidden transition-all duration-300" style="max-height:${i===0 ? "150px" : "0"}">
+            <p class="pb-4 text-sm text-ink-500 dark:text-ink-400">${f[1]}</p>
+          </div>
+        </div>`).join("")}
       </div>
     </section>
   </main>`;

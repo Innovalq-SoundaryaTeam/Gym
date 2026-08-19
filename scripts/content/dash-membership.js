@@ -8,7 +8,7 @@ module.exports = function dashMembership(base) {
   <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
     <!-- CURRENT PLAN -->
     <div class="card relative overflow-hidden p-7 lg:col-span-2">
-      <img src="${base}assets/images/banners/cta-band.svg" class="absolute inset-0 h-full w-full object-cover opacity-10" alt="" />
+      <img src="${base}assets/images/banners/cta-band.jpg" class="absolute inset-0 h-full w-full object-cover opacity-10" alt="" />
       <div class="relative flex flex-wrap items-start justify-between gap-4">
         <div>
           <span class="badge-volt">Active Plan</span>

@@ -5,7 +5,7 @@ module.exports = function register(base) {
   <main id="main">
     <section class="mx-auto grid min-h-[calc(100vh-73px)] max-w-7xl grid-cols-1 lg:grid-cols-2">
       <div class="relative hidden overflow-hidden bg-ink-950 lg:block">
-        <img src="${base}assets/images/banners/hero-1.svg" class="h-full w-full object-cover opacity-70" alt="" />
+        <img src="${base}assets/images/banners/hero-1.jpg" class="h-full w-full object-cover opacity-70" alt="" />
         <div class="absolute inset-0 flex flex-col justify-between bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent p-12">
           <span class="eyebrow w-fit">Join PULSE</span>
           <div>
@@ -23,7 +23,7 @@ module.exports = function register(base) {
           <h1 class="mt-4 text-3xl font-extrabold">Start your free trial.</h1>
           <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">No credit card required for your first 2 weeks.</p>
 
-          <form class="mt-8 space-y-5">
+          <form class="mt-8 space-y-5" data-redirect="${base}dashboard/index.html">
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="label">First Name</label>
@@ -57,7 +57,7 @@ module.exports = function register(base) {
               <input type="checkbox" required class="mt-0.5 h-4 w-4 rounded border-ink-300 text-volt-500 focus:ring-volt-400" />
               I agree to the Terms of Service and Privacy Policy.
             </label>
-            <a href="${base}dashboard/index.html" class="btn-primary btn-block">Create Account</a>
+            <button type="submit" class="btn-primary btn-block">Create Account</button>
           </form>
 
           <p class="mt-8 text-center text-sm text-ink-500 dark:text-ink-400">

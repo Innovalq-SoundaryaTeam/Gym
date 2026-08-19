@@ -37,7 +37,7 @@ module.exports = function dashWorkouts(base) {
 
   <!-- COACH NOTE -->
   <div class="card mt-6 flex items-start gap-4 p-6">
-    <img src="${base}assets/images/avatars/avatar-1.svg" class="h-12 w-12 shrink-0 rounded-full" alt="Arjun Mehta" />
+    <img src="${base}assets/images/avatars/avatar-1.jpg" class="h-12 w-12 shrink-0 rounded-full object-cover" alt="Arjun Mehta" />
     <div>
       <p class="font-bold">Note from Coach Arjun</p>
       <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">"Great job hitting 130kg on squat last week — let's push for 132.5kg x5 on Monday. Keep resting 3 minutes between top sets."</p>

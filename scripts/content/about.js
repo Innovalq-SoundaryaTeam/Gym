@@ -6,7 +6,7 @@ module.exports = function about(base) {
 
     <!-- HERO -->
     <section class="relative overflow-hidden bg-ink-950 py-20 sm:py-28">
-      <img src="${base}assets/images/banners/about-story.svg" class="absolute inset-0 h-full w-full object-cover opacity-50" alt="" />
+      <img src="${base}assets/images/banners/about-story.jpg" class="absolute inset-0 h-full w-full object-cover opacity-50" alt="" />
       <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/10"></div>
       <div class="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
         <span class="eyebrow">About PULSE</span>
@@ -33,7 +33,7 @@ module.exports = function about(base) {
             </div>`).join("")}
           </div>
         </div>
-        <img src="${base}assets/images/banners/facility-weights.svg" class="w-full rounded-3xl" alt="PULSE facility" />
+        <img src="${base}assets/images/banners/facility-weights.jpg" class="w-full rounded-3xl" alt="PULSE facility" />
       </div>
     </section>
 
@@ -76,7 +76,7 @@ module.exports = function about(base) {
           { n: "Divya Suresh", r: "Studio Operations Lead", a: 8 },
         ].map((t) => `
         <div class="text-center">
-          <img src="${base}assets/images/avatars/avatar-${t.a}.svg" class="mx-auto aspect-square w-full rounded-2xl object-cover" alt="${t.n}" />
+          <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="mx-auto aspect-square w-full rounded-2xl object-cover" alt="${t.n}" />
           <p class="mt-3 font-bold">${t.n}</p>
           <p class="text-xs text-ink-500 dark:text-ink-400">${t.r}</p>
         </div>`).join("")}
@@ -121,10 +121,38 @@ module.exports = function about(base) {
           <div class="flex gap-0.5 text-volt-500">${Array(5).fill(icon("star","h-4 w-4 fill-current")).join("")}</div>
           <p class="mt-4 text-sm text-ink-600 dark:text-ink-300">"${t.q}"</p>
           <div class="mt-5 flex items-center gap-3">
-            <img src="${base}assets/images/avatars/avatar-${t.a}.svg" class="h-10 w-10 rounded-full" alt="${t.n}" />
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 rounded-full object-cover" alt="${t.n}" />
             <p class="text-sm font-bold">${t.n}</p>
           </div>
         </div>`).join("")}
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-ink-50 py-20 dark:bg-ink-900/40">
+      <div class="mx-auto max-w-3xl px-5 sm:px-8">
+        <div class="text-center">
+          <span class="eyebrow">Studio FAQs</span>
+          <h2 class="section-title mt-4">Everything you'd ask before your first visit.</h2>
+        </div>
+        <div class="mt-10 divide-y divide-ink-100 dark:divide-ink-800" data-accordion>
+          ${[
+            ["Where are your studios located?", "PULSE has three locations across the city, with our flagship studio at 221 Baker Street, Camden. Full addresses and hours are on the Contact page."],
+            ["Do you offer a free trial?", "Yes — every new member gets one free trial class at any studio, no commitment required. See the Membership page for details."],
+            ["What equipment does each studio have?", "Every location has a full free-weights floor, dedicated strength racks, cardio machines, and a dedicated studio room for group classes like yoga and Zumba."],
+            ["Are your coaches certified?", "All 12 coaches hold a nationally recognised certification in their discipline and are reassessed annually — see the Trainers page for individual credentials."],
+            ["Is there a minimum contract length?", "No. All memberships are month-to-month with no lock-in contract, and can be paused or cancelled anytime from your dashboard."],
+          ].map((f, i) => `
+          <div data-accordion-item data-open="${i===0}">
+            <button data-accordion-trigger class="flex w-full items-center justify-between py-4 text-left font-semibold">
+              ${f[0]}
+              <span data-accordion-icon class="transition-transform duration-200 ${i===0 ? "rotate-45" : ""}">${icon("plus","h-5 w-5 text-volt-600 dark:text-volt-400")}</span>
+            </button>
+            <div data-accordion-panel class="overflow-hidden transition-all duration-300" style="max-height:${i===0 ? "150px" : "0"}">
+              <p class="pb-4 text-sm text-ink-500 dark:text-ink-400">${f[1]}</p>
+            </div>
+          </div>`).join("")}
+        </div>
       </div>
     </section>
 

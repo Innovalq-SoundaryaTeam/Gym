@@ -6,7 +6,7 @@ module.exports = function home1(base) {
 
     <!-- ============ HERO ============ -->
     <section class="relative overflow-hidden bg-ink-950">
-      <img src="${base}assets/images/banners/hero-1.svg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-90" />
+      <img src="${base}assets/images/banners/hero-1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-90" />
       <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/20"></div>
       <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-2 lg:pb-28 lg:pt-28">
         <div data-reveal class="translate-y-4 opacity-0 transition-all duration-700">
@@ -65,7 +65,7 @@ module.exports = function home1(base) {
                 ${icon("chevronRight", "h-4 w-4 text-ink-500")}
               </div>`).join("")}
             </div>
-            <a href="${base}dashboard/book-classes.html" class="btn-primary btn-block mt-5">Book a Slot</a>
+            <a href="${base}login.html?next=dashboard/book-classes.html" class="btn-primary btn-block mt-5">Book a Slot</a>
           </div>
         </div>
       </div>
@@ -95,11 +95,16 @@ module.exports = function home1(base) {
           { img: "facility-weights", t: "Free Weights Zone", d: "Full rack of Olympic bars, dumbbells up to 60kg, and platforms." },
           { img: "facility-cardio", t: "Cardio Deck", d: "Treadmills, rowers & assault bikes with heart-rate integration." },
           { img: "facility-studio", t: "Group Studio", d: "Mirrored studio for yoga, Zumba & mobility sessions." },
-          { img: "facility-boxing", t: "Boxing & HIIT Arena", d: "Bag stations and turf lane for conditioning circuits." },
+          { img: "facility-boxing", t: "Boxing & HIIT Arena", d: "Bag stations and turf lane for conditioning circuits.", fitContain: true },
         ].map((f, i) => `
         <div data-reveal style="transition-delay:${i * 80}ms" class="card group translate-y-4 overflow-hidden opacity-0 transition-all duration-700">
-          <div class="relative h-44 overflow-hidden">
-            <img src="${base}assets/images/banners/${f.img}.svg" alt="${f.t}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="relative h-44 overflow-hidden bg-ink-950">
+            ${f.fitContain ? `
+            <img src="${base}assets/images/banners/${f.img}.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full scale-110 object-cover object-top blur-md brightness-50" />
+            <img src="${base}assets/images/banners/${f.img}.jpg" alt="${f.t}" class="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+            ` : `
+            <img src="${base}assets/images/banners/${f.img}.jpg" alt="${f.t}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            `}
           </div>
           <div class="p-5">
             <h3 class="text-lg font-bold">${f.t}</h3>
@@ -146,9 +151,9 @@ module.exports = function home1(base) {
           { k: "strength", t: "Strength Lab", time: "7 sessions / week", lvl: "Intermediate" },
           { k: "cardio", t: "Cardio Blast", time: "6 sessions / week", lvl: "All Levels" },
         ].map((c) => `
-        <a href="${base}class-details.html" class="card group overflow-hidden">
+        <a href="${base}class-details-${c.k}.html" class="card group overflow-hidden">
           <div class="relative h-36 overflow-hidden">
-            <img src="${base}assets/images/thumbs/${c.k}.svg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${c.t}" />
+            <img src="${base}assets/images/thumbs/${c.k}.jpg" class="h-full w-full object-cover ${c.k === "strength" ? "object-center" : "object-top"} transition-transform duration-500 group-hover:scale-105" alt="${c.t}" />
             <span class="absolute left-3 top-3 badge-ink !bg-white/90 dark:!bg-ink-950/80">${c.lvl}</span>
           </div>
           <div class="p-5">
@@ -184,8 +189,8 @@ module.exports = function home1(base) {
           </div>
         </div>
         <div class="relative">
-          <img src="${base}assets/images/banners/about-story.svg" alt="Coaching at PULSE" class="w-full rounded-3xl" />
-          <div class="absolute -bottom-6 -left-6 hidden rounded-2xl bg-white p-5 shadow-card dark:bg-ink-900 dark:shadow-card-dark sm:block">
+          <img src="${base}assets/images/banners/about-story.jpg" alt="Coaching at PULSE" class="w-full rounded-3xl" />
+          <div class="absolute -bottom-12 -left-6 hidden rounded-2xl bg-white p-5 shadow-card dark:bg-ink-900 dark:shadow-card-dark sm:block">
             <div class="flex items-center gap-3">
               <div class="icon-tile">${icon("trendingUp", "h-5 w-5")}</div>
               <div>
@@ -216,7 +221,7 @@ module.exports = function home1(base) {
         ].map((t) => `
         <a href="${base}trainers.html" class="group text-center">
           <div class="overflow-hidden rounded-2xl">
-            <img src="${base}assets/images/avatars/avatar-${t.a}.svg" alt="${t.n}" class="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" alt="${t.n}" class="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
           <p class="mt-3 font-bold">${t.n}</p>
           <p class="text-xs text-ink-500 dark:text-ink-400">${t.r}</p>
@@ -242,7 +247,7 @@ module.exports = function home1(base) {
               ${icon("quote", "mx-auto h-8 w-8 text-volt-400")}
               <p class="mt-6 text-lg font-medium text-white sm:text-xl">"${t.q}"</p>
               <div class="mt-6 flex items-center justify-center gap-3">
-                <img src="${base}assets/images/avatars/avatar-${t.a}.svg" class="h-11 w-11 rounded-full" alt="${t.n}" />
+                <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-11 w-11 rounded-full object-cover" alt="${t.n}" />
                 <div class="text-left">
                   <p class="text-sm font-bold text-white">${t.n}</p>
                   <p class="text-xs text-ink-400">${t.r}</p>
@@ -270,8 +275,8 @@ module.exports = function home1(base) {
           { img: "blog-2", cat: "Strength", t: "Progressive Overload 101: A Beginner's Roadmap", d: "Jul 24, 2026" },
           { img: "blog-3", cat: "Mobility", t: "Why Your Warm-up Matters More Than Your Workout", d: "Jul 11, 2026" },
         ].map((p) => `
-        <a href="${base}blog-details.html" class="card group overflow-hidden">
-          <div class="h-44 overflow-hidden"><img src="${base}assets/images/thumbs/${p.img}.svg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${p.t}" /></div>
+        <a href="${base}blog-details-${p.img}.html" class="card group overflow-hidden">
+          <div class="h-44 overflow-hidden"><img src="${base}assets/images/thumbs/${p.img}.jpg" class="h-full w-full object-cover ${["blog-2","blog-5"].includes(p.img) ? "object-center" : "object-top"} transition-transform duration-500 group-hover:scale-105" alt="${p.t}" /></div>
           <div class="p-5">
             <span class="badge-volt">${p.cat}</span>
             <h3 class="mt-3 font-bold leading-snug group-hover:text-volt-600 dark:group-hover:text-volt-300">${p.t}</h3>
@@ -281,10 +286,38 @@ module.exports = function home1(base) {
       </div>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="bg-ink-50 py-20 dark:bg-ink-900/40">
+      <div class="mx-auto max-w-3xl px-5 sm:px-8">
+        <div class="text-center">
+          <span class="eyebrow">Questions</span>
+          <h2 class="section-title mt-4">New to PULSE? Start here.</h2>
+        </div>
+        <div class="mt-10 divide-y divide-ink-100 dark:divide-ink-800" data-accordion>
+          ${[
+            ["Do I need to be fit to start?", "Not at all — most first-timers aren't. Every class is coached with scalable options, and your first session includes a quick movement check so coaches can adjust intensity to you."],
+            ["What should I bring to my first visit?", "Just comfortable workout clothes, closed-toe shoes and a water bottle. Mats, weights and other equipment are provided, and towels are available at the front desk."],
+            ["Can I try a class before joining?", "Yes — new members get a free trial class in any studio. Book it from the homepage or talk to us and we'll set you up with the right first class for your goals."],
+            ["Is parking available at the studio?", "Yes, free member parking is available at all three locations, along with secure bike racks and nearby street parking."],
+            ["How do I book or cancel a class?", "Once you're a member, book and cancel classes anytime from your dashboard — spots open back up instantly for other members when you cancel."],
+          ].map((f, i) => `
+          <div data-accordion-item data-open="${i===0}">
+            <button data-accordion-trigger class="flex w-full items-center justify-between py-4 text-left font-semibold">
+              ${f[0]}
+              <span data-accordion-icon class="transition-transform duration-200 ${i===0 ? "rotate-45" : ""}">${icon("plus","h-5 w-5 text-volt-600 dark:text-volt-400")}</span>
+            </button>
+            <div data-accordion-panel class="overflow-hidden transition-all duration-300" style="max-height:${i===0 ? "150px" : "0"}">
+              <p class="pb-4 text-sm text-ink-500 dark:text-ink-400">${f[1]}</p>
+            </div>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CTA BAND ============ -->
     <section class="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
       <div class="relative overflow-hidden rounded-3xl bg-ink-950 px-8 py-16 text-center sm:px-16">
-        <img src="${base}assets/images/banners/cta-band.svg" class="absolute inset-0 h-full w-full object-cover opacity-40" alt="" />
+        <img src="${base}assets/images/banners/cta-band.jpg" class="absolute inset-0 h-full w-full object-cover opacity-40" alt="" />
         <div class="relative">
           <h2 class="section-title text-white">Your first class is on us.</h2>
           <p class="mx-auto mt-4 max-w-xl text-ink-300">Create a free account, pick a class, and see why PULSE members stay for years, not months.</p>

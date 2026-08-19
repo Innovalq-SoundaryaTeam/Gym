@@ -4,7 +4,7 @@ module.exports = function dashOverview(base) {
   return `
   <!-- WELCOME BANNER -->
   <div class="relative overflow-hidden rounded-3xl bg-ink-950 p-8 sm:p-10">
-    <img src="${base}assets/images/banners/hero-2.svg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
+    <img src="${base}assets/images/banners/hero-2.jpg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
     <div class="relative flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
       <div>
         <p class="text-sm text-ink-300">Welcome back,</p>
@@ -60,7 +60,7 @@ module.exports = function dashOverview(base) {
           { t: "Strength Lab", time: "Fri · 6:00 AM", coach: "Arjun Mehta", k: "strength" },
         ].map((b) => `
         <div class="flex items-center gap-3 rounded-xl border border-ink-100 p-3 dark:border-ink-800">
-          <img src="${base}assets/images/thumbs/${b.k}.svg" class="h-11 w-11 shrink-0 rounded-lg object-cover" alt="" />
+          <img src="${base}assets/images/thumbs/${b.k}.jpg" class="h-11 w-11 shrink-0 rounded-lg object-cover object-top" alt="" />
           <div class="min-w-0 flex-1">
             <p class="truncate text-sm font-semibold">${b.t}</p>
             <p class="text-xs text-ink-500 dark:text-ink-400">${b.time}</p>

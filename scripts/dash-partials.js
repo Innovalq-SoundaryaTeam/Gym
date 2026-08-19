@@ -53,7 +53,7 @@ function topbar({ title, base, userName, userAvatar, notifCount, roleLabel, acco
       </button>
       <div class="relative" data-account-menu>
         <button type="button" data-account-menu-trigger class="flex items-center gap-2 rounded-full border border-ink-200 py-1 pl-1 pr-3 dark:border-ink-700">
-          <img src="${base}assets/images/avatars/${userAvatar}.svg" class="h-7 w-7 rounded-full" alt="${userName}" />
+          <img src="${base}assets/images/avatars/${userAvatar}.jpg" class="h-7 w-7 rounded-full object-cover" alt="${userName}" />
           <span class="hidden text-sm font-semibold sm:block">${userName}</span>
           ${icon("chevronDown","h-3.5 w-3.5 text-ink-400")}
         </button>

@@ -29,11 +29,11 @@ module.exports = function home2(base) {
         </div>
         <div class="relative order-1 lg:order-2" data-reveal>
           <div class="overflow-hidden rounded-3xl">
-            <img src="${base}assets/images/banners/hero-2.svg" alt="Elite training session" class="aspect-[4/5] w-full object-cover sm:aspect-square lg:aspect-[4/5]" />
+            <img src="${base}assets/images/banners/hero-2.jpg" alt="Elite training session" class="aspect-[4/5] w-full object-cover sm:aspect-square lg:aspect-[4/5]" />
           </div>
           <div class="absolute -left-4 bottom-6 hidden rounded-2xl bg-white p-4 shadow-card dark:bg-ink-900 dark:shadow-card-dark sm:flex items-center gap-3">
             <div class="flex -space-x-3">
-              ${[1,2,3,4].map((a) => `<img src="${base}assets/images/avatars/avatar-${a}.svg" class="h-9 w-9 rounded-full ring-2 ring-white dark:ring-ink-900" alt="member" />`).join("")}
+              ${[1,2,3,4].map((a) => `<img src="${base}assets/images/avatars/avatar-${a}.jpg" class="h-9 w-9 rounded-full object-cover ring-2 ring-white dark:ring-ink-900" alt="member" />`).join("")}
             </div>
             <div>
               <p class="text-sm font-bold">240+ athletes</p>
@@ -62,9 +62,9 @@ module.exports = function home2(base) {
       </div>
       <div class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
         ${[
-          { i: "dumbbell", t: "Strength Performance", d: "Powerlifting-based progression for raw strength gains.", tags: ["Barbell", "1:6 Coaching", "12-week block"] },
-          { i: "activity", t: "Hybrid Conditioning", d: "Strength + engine work for CrossFit-style competitors.", tags: ["Metcons", "Mobility", "Weekly testing"] },
-          { i: "target", t: "Physique & Recovery", d: "Body recomposition with sleep & nutrition coaching.", tags: ["Macros", "Sauna", "Bi-weekly scans"] },
+          { i: "dumbbell", t: "Strength Performance", d: "Powerlifting-based progression for raw strength gains.", tags: ["Barbell", "1:6 Coaching", "12-week block"], k: "strength" },
+          { i: "activity", t: "Hybrid Conditioning", d: "Strength + engine work for CrossFit-style competitors.", tags: ["Metcons", "Mobility", "Weekly testing"], k: "hiit" },
+          { i: "target", t: "Physique & Recovery", d: "Body recomposition with sleep & nutrition coaching.", tags: ["Macros", "Sauna", "Bi-weekly scans"], k: "pilates" },
         ].map((p, i) => `
         <div data-reveal style="transition-delay:${i*80}ms" class="card translate-y-4 p-7 opacity-0 transition-all duration-700 ${i===1 ? "ring-2 ring-volt-400" : ""}">
           ${i===1 ? `<span class="badge-volt mb-3">Most Popular</span>` : ""}
@@ -74,7 +74,7 @@ module.exports = function home2(base) {
           <ul class="mt-5 space-y-2">
             ${p.tags.map((tag) => `<li class="flex items-center gap-2 text-sm">${icon("check","h-4 w-4 text-volt-600 dark:text-volt-400")}${tag}</li>`).join("")}
           </ul>
-          <a href="${base}class-details.html" class="btn-outline btn-block mt-6">Learn More</a>
+          <a href="${base}class-details-${p.k}.html" class="btn-outline btn-block mt-6">Learn More</a>
         </div>`).join("")}
       </div>
     </section>
@@ -101,7 +101,7 @@ module.exports = function home2(base) {
     <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
       <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
         <div class="relative order-2 lg:order-1">
-          <img src="${base}assets/images/banners/facility-studio.svg" class="w-full rounded-3xl" alt="Studio" />
+          <img src="${base}assets/images/banners/facility-studio.jpg" class="w-full rounded-3xl" alt="Studio" />
         </div>
         <div class="order-1 lg:order-2">
           <span class="eyebrow">Member Dashboard</span>
@@ -121,6 +121,62 @@ module.exports = function home2(base) {
           </div>
           <a href="${base}dashboard/index.html" class="btn-dark mt-8 inline-flex">Preview Dashboard ${icon("arrowRight","h-4 w-4")}</a>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="bg-ink-950 py-20">
+      <div class="mx-auto max-w-4xl px-5 text-center sm:px-8">
+        <span class="eyebrow">Athlete Results</span>
+        <h2 class="section-title mt-4 text-white">Built for people chasing a number.</h2>
+      </div>
+      <div class="relative mx-auto mt-12 max-w-3xl overflow-hidden px-5" data-slider data-slider-auto="6500">
+        <div data-slider-track class="flex transition-transform duration-500 ease-out">
+          ${[
+            { q: "The 1:6 coaching ratio changes everything. My squat numbers moved more in one six-week cycle than in two years training alone.", n: "Rahul Nanda", r: "Elite Performance, Cycle 4", a: 9 },
+            { q: "Weekly testing keeps me honest. I can see exactly where I'm progressing and where the next block needs to focus.", n: "Tanvi Oberoi", r: "Elite Performance, Cycle 6", a: 11 },
+            { q: "Recovery coaching was the missing piece. Better sleep tracking and macros made every session in the gym actually count.", n: "Zeeshan Ali", r: "Physique & Recovery Track", a: 3 },
+          ].map((t) => `
+          <div class="w-full shrink-0 px-2">
+            <div class="rounded-3xl border border-white/10 bg-white/5 p-8 sm:p-10">
+              ${icon("quote", "mx-auto h-8 w-8 text-volt-400")}
+              <p class="mt-6 text-lg font-medium text-white sm:text-xl">"${t.q}"</p>
+              <div class="mt-6 flex items-center justify-center gap-3">
+                <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-11 w-11 rounded-full object-cover" alt="${t.n}" />
+                <div class="text-left">
+                  <p class="text-sm font-bold text-white">${t.n}</p>
+                  <p class="text-xs text-ink-400">${t.r}</p>
+                </div>
+              </div>
+            </div>
+          </div>`).join("")}
+        </div>
+        <div data-slider-dots class="mt-6 flex items-center justify-center gap-2"></div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <div class="text-center">
+        <span class="eyebrow">Program Questions</span>
+        <h2 class="section-title mt-4">What to know before you apply.</h2>
+      </div>
+      <div class="mt-10 divide-y divide-ink-100 dark:divide-ink-800" data-accordion>
+        ${[
+          ["Who is the Elite Performance Program for?", "Athletes and serious lifters who already train consistently and want structured, tested programming rather than open gym access. Most applicants are coming from 6+ months of regular training."],
+          ["How does the 1:6 coaching ratio work?", "Each session caps at six athletes per coach, so every set gets watched and corrected in real time — closer to small-group personal training than a typical class."],
+          ["What happens after the 6-week cycle ends?", "You'll get a full results review — strength testing, body composition scan and a recommendation for your next cycle or track."],
+          ["Can I switch tracks mid-program?", "Track changes are reviewed at the end of each 6-week cycle to keep programming consistent, but your coach can flag an earlier switch if it's clearly the better fit."],
+        ].map((f, i) => `
+        <div data-accordion-item data-open="${i===0}">
+          <button data-accordion-trigger class="flex w-full items-center justify-between py-4 text-left font-semibold">
+            ${f[0]}
+            <span data-accordion-icon class="transition-transform duration-200 ${i===0 ? "rotate-45" : ""}">${icon("plus","h-5 w-5 text-volt-600 dark:text-volt-400")}</span>
+          </button>
+          <div data-accordion-panel class="overflow-hidden transition-all duration-300" style="max-height:${i===0 ? "150px" : "0"}">
+            <p class="pb-4 text-sm text-ink-500 dark:text-ink-400">${f[1]}</p>
+          </div>
+        </div>`).join("")}
       </div>
     </section>
 

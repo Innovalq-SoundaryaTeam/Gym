@@ -9,9 +9,10 @@ const POSTS = [
   { img: "blog-6", cat: "Mind & Body", t: "Spin Class Playlist Secrets: How Music Drives Output", d: "Jun 02, 2026", a: 6, read: "5 min read" },
   { img: "blog-7", cat: "Mobility", t: "A 10-Minute Mat Pilates Routine You Can Do at Home", d: "May 21, 2026", a: 2, read: "6 min read" },
   { img: "blog-8", cat: "Strength", t: "Zumba for Strength? Why Dance Cardio Counts", d: "May 09, 2026", a: 4, read: "4 min read" },
+  { img: "blog-9", cat: "Recovery", t: "Sleep & Recovery: The Most Overlooked Training Variable", d: "Apr 28, 2026", a: 6, read: "6 min read" },
 ];
 
-const CATS = ["all","Nutrition","Strength","Mobility","Conditioning","Community","Mind & Body"];
+const CATS = ["all","Nutrition","Strength","Mobility","Conditioning","Community","Mind & Body","Recovery"];
 
 module.exports = function blog(base) {
   return `
@@ -38,17 +39,17 @@ module.exports = function blog(base) {
       <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         ${POSTS.map((p) => `
         <article data-blog-card data-title="${p.t}" data-category="${p.cat}" class="card group overflow-hidden">
-          <a href="${base}blog-details.html" class="block h-44 overflow-hidden">
-            <img src="${base}assets/images/thumbs/${p.img}.svg" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" alt="${p.t}" />
+          <a href="${base}blog-details-${p.img}.html" class="block h-44 overflow-hidden">
+            <img src="${base}assets/images/thumbs/${p.img}.jpg" class="h-full w-full object-cover ${["blog-2","blog-5"].includes(p.img) ? "object-center" : "object-top"} transition-transform duration-500 group-hover:scale-105" alt="${p.t}" />
           </a>
           <div class="p-5">
             <div class="flex items-center gap-3">
               <span class="badge-volt">${p.cat}</span>
               <span class="text-xs text-ink-400">${p.read}</span>
             </div>
-            <a href="${base}blog-details.html"><h3 class="mt-3 font-bold leading-snug group-hover:text-volt-600 dark:group-hover:text-volt-300">${p.t}</h3></a>
+            <a href="${base}blog-details-${p.img}.html"><h3 class="mt-3 font-bold leading-snug group-hover:text-volt-600 dark:group-hover:text-volt-300">${p.t}</h3></a>
             <div class="mt-4 flex items-center gap-2 border-t border-ink-100 pt-4 dark:border-ink-800">
-              <img src="${base}assets/images/avatars/avatar-${p.a}.svg" class="h-7 w-7 rounded-full" alt="author" />
+              <img src="${base}assets/images/avatars/avatar-${p.a}.jpg" class="h-7 w-7 rounded-full object-cover" alt="author" />
               <span class="text-xs text-ink-500 dark:text-ink-400">${p.d}</span>
             </div>
           </div>
@@ -56,12 +57,55 @@ module.exports = function blog(base) {
       </div>
 
       <p data-blog-empty class="hidden py-16 text-center text-ink-500 dark:text-ink-400">No articles match your search — try a different keyword or category.</p>
+    </section>
 
-      <!-- pagination -->
-      <div class="mt-12 flex items-center justify-center gap-2">
-        <button class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-400 dark:border-ink-700">${icon("chevronLeft","h-4 w-4")}</button>
-        ${[1,2,3].map((n) => `<button class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold ${n===1 ? "bg-ink-950 text-white dark:bg-white dark:text-ink-950" : "border border-ink-200 dark:border-ink-700"}">${n}</button>`).join("")}
-        <button class="flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300">${icon("chevronRight","h-4 w-4")}</button>
+    <!-- POPULAR TOPICS -->
+    <section class="bg-ink-50 py-20 dark:bg-ink-900/40">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="eyebrow">Popular Topics</span>
+          <h2 class="section-title mt-4">Written by the people who coach you.</h2>
+          <p class="section-sub mx-auto">Every article on the PULSE blog is written or reviewed by one of our
+            certified coaches — real programming advice, not recycled fitness-industry content.</p>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-4">
+          ${[
+            ["dumbbell","Strength","Progressive overload, programming and powerlifting basics."],
+            ["activity","Conditioning","HIIT, cardio protocols and metabolic conditioning."],
+            ["heart","Recovery","Sleep, mobility and injury-prevention fundamentals."],
+            ["target","Nutrition","Fuelling, macros and post-workout meal timing."],
+          ].map(([i,t,d]) => `
+          <div class="rounded-2xl border border-ink-100 bg-white p-5 text-center dark:border-ink-800 dark:bg-ink-900">
+            <div class="icon-tile mx-auto">${icon(i,"h-5 w-5")}</div>
+            <p class="mt-3 font-bold">${t}</p>
+            <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">${d}</p>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <div class="text-center">
+        <span class="eyebrow">Blog FAQs</span>
+        <h2 class="section-title mt-4">Quick questions about the blog.</h2>
+      </div>
+      <div class="mt-10 divide-y divide-ink-100 dark:divide-ink-800" data-accordion>
+        ${[
+          ["How often do you publish new articles?", "New articles go up roughly once a week, usually paired with the weekly newsletter — expect a mix of training, nutrition and recovery topics."],
+          ["Can I suggest a topic?", "Absolutely — message us through the Contact page with any topic you'd like a coach to cover in a future post."],
+          ["Who writes the articles?", "Every post is written or reviewed by a PULSE coach in that specialty, so the advice reflects how we actually program for members."],
+          ["Is the newsletter separate from class reminders?", "Yes — the blog newsletter is purely training and nutrition content, separate from any dashboard booking or attendance notifications."],
+        ].map((f, i) => `
+        <div data-accordion-item data-open="${i===0}">
+          <button data-accordion-trigger class="flex w-full items-center justify-between py-4 text-left font-semibold">
+            ${f[0]}
+            <span data-accordion-icon class="transition-transform duration-200 ${i===0 ? "rotate-45" : ""}">${icon("plus","h-5 w-5 text-volt-600 dark:text-volt-400")}</span>
+          </button>
+          <div data-accordion-panel class="overflow-hidden transition-all duration-300" style="max-height:${i===0 ? "150px" : "0"}">
+            <p class="pb-4 text-sm text-ink-500 dark:text-ink-400">${f[1]}</p>
+          </div>
+        </div>`).join("")}
       </div>
     </section>
 

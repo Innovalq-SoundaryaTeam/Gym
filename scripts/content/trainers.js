@@ -28,7 +28,7 @@ module.exports = function trainers(base) {
         ${TRAINERS.map((t) => `
         <div class="card group overflow-hidden">
           <div class="relative overflow-hidden">
-            <img src="${base}assets/images/avatars/avatar-${t.a}.svg" alt="${t.n}" class="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" alt="${t.n}" class="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
             <div class="absolute inset-x-0 bottom-0 flex justify-center gap-2 bg-gradient-to-t from-ink-950/80 to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100">
               ${["instagram","facebook","x"].map((s) => `<a href="#" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 text-white hover:bg-volt-400 hover:text-ink-950">${icon(s,"h-3.5 w-3.5")}</a>`).join("")}
             </div>
@@ -47,8 +47,82 @@ module.exports = function trainers(base) {
       </div>
     </section>
 
+    <!-- COACHING PHILOSOPHY -->
+    <section class="bg-ink-50 py-20 dark:bg-ink-900/40">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="eyebrow">How We Coach</span>
+          <h2 class="section-title mt-4">Same coach, tracked progress, no fluff.</h2>
+          <p class="section-sub mx-auto">Every PULSE coach follows the same core philosophy: assess honestly, program
+            for the individual, and track results so progress is visible — not just felt.</p>
+        </div>
+        <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          ${[
+            { i: "target", t: "Assess First", d: "Every new member gets a movement and goals assessment before their first program is built." },
+            { i: "chartBar", t: "Program for Progress", d: "Plans update as you do — logged in your dashboard so you can see the trendline, not just today's session." },
+            { i: "users", t: "Stay With You", d: "Coaches are matched to members long-term wherever possible, so context never has to be re-explained." },
+          ].map((v) => `
+          <div class="rounded-2xl border border-ink-100 bg-white p-7 text-center dark:border-ink-800 dark:bg-ink-900">
+            <div class="icon-tile mx-auto">${icon(v.i,"h-5 w-5")}</div>
+            <h3 class="mt-4 text-lg font-bold">${v.t}</h3>
+            <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">${v.d}</p>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
+      <div class="text-center">
+        <span class="eyebrow">Member Feedback</span>
+        <h2 class="section-title mt-4">What it's like training with our coaches.</h2>
+      </div>
+      <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        ${[
+          { q: "Coach Arjun rebuilt my deadlift form from scratch. Six months later I'm lifting more than ever, pain-free.", n: "Yusuf Ansari", a: 6 },
+          { q: "Priya's mobility cues carried over into every other class I take. She notices things other coaches miss.", n: "Simran Kaur", a: 9 },
+          { q: "Rohan's HIIT programming is genuinely smart — never just random intervals, always building toward something.", n: "Devika Menon", a: 11 },
+        ].map((t) => `
+        <div class="card p-6">
+          <div class="flex gap-0.5 text-volt-500">${Array(5).fill(icon("star","h-4 w-4 fill-current")).join("")}</div>
+          <p class="mt-4 text-sm text-ink-600 dark:text-ink-300">"${t.q}"</p>
+          <div class="mt-5 flex items-center gap-3">
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 rounded-full object-cover" alt="${t.n}" />
+            <p class="text-sm font-bold">${t.n}</p>
+          </div>
+        </div>`).join("")}
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-ink-50 py-20 dark:bg-ink-900/40">
+      <div class="mx-auto max-w-3xl px-5 sm:px-8">
+        <div class="text-center">
+          <span class="eyebrow">Coach FAQs</span>
+          <h2 class="section-title mt-4">Common questions about our trainers.</h2>
+        </div>
+        <div class="mt-10 divide-y divide-ink-100 dark:divide-ink-800" data-accordion>
+          ${[
+            ["Can I request a specific coach?", "Yes — you can request a coach for personal training sessions or note a preference for group classes; we'll match you wherever schedules allow."],
+            ["Do coaches offer 1:1 personal training?", "Most coaches offer personal training sessions in addition to group classes. Check plan details on the Membership page for included sessions."],
+            ["Are all coaches certified in first aid / CPR?", "Yes, every coach maintains current first aid and CPR certification in addition to their discipline-specific credentials."],
+            ["How experienced are PULSE's coaches?", "Our coaching team averages over 7 years of experience, with certifications ranging from NSCA-CSCS to RYT-500 and Precision Nutrition."],
+          ].map((f, i) => `
+          <div data-accordion-item data-open="${i===0}">
+            <button data-accordion-trigger class="flex w-full items-center justify-between py-4 text-left font-semibold">
+              ${f[0]}
+              <span data-accordion-icon class="transition-transform duration-200 ${i===0 ? "rotate-45" : ""}">${icon("plus","h-5 w-5 text-volt-600 dark:text-volt-400")}</span>
+            </button>
+            <div data-accordion-panel class="overflow-hidden transition-all duration-300" style="max-height:${i===0 ? "150px" : "0"}">
+              <p class="pb-4 text-sm text-ink-500 dark:text-ink-400">${f[1]}</p>
+            </div>
+          </div>`).join("")}
+        </div>
+      </div>
+    </section>
+
     <!-- BECOME A TRAINER CTA -->
-    <section class="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
       <div class="grid grid-cols-1 items-center gap-10 rounded-3xl bg-ink-50 p-10 dark:bg-ink-900/50 lg:grid-cols-2">
         <div>
           <span class="eyebrow">Careers</span>

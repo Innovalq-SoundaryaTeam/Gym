@@ -1,17 +1,34 @@
 const { icon } = require("../icons");
 
-const ORDERS = [
-  { id: "#ORD-8841", user: "Meera Sharma", item: "Pro Membership — Monthly", amount: "$59.00", status: "Paid", date: "Aug 17, 2026" },
-  { id: "#ORD-8840", user: "Kabir Singh", item: "4-Class Pack", amount: "$65.00", status: "Paid", date: "Aug 16, 2026" },
-  { id: "#ORD-8839", user: "Sara Ahmed", item: "Basic Membership — Monthly", amount: "$29.00", status: "Failed", date: "Aug 16, 2026" },
-  { id: "#ORD-8838", user: "Ayesha Khan", item: "Personal Training — 4 sessions", amount: "$180.00", status: "Paid", date: "Aug 15, 2026" },
-  { id: "#ORD-8837", user: "Manav Joshi", item: "Elite Membership — Annual", amount: "$1,009.00", status: "Paid", date: "Aug 14, 2026" },
-  { id: "#ORD-8836", user: "Neha Kulkarni", item: "Pro Membership — Monthly", amount: "$59.00", status: "Refunded", date: "Aug 13, 2026" },
-  { id: "#ORD-8835", user: "Rohan Kapoor", item: "Nutrition Consult", amount: "$65.00", status: "Paid", date: "Aug 12, 2026" },
-  { id: "#ORD-8834", user: "Divya Suresh", item: "Body Composition Scan", amount: "$25.00", status: "Pending", date: "Aug 12, 2026" },
+const NAMES = ["Meera Sharma", "Kabir Singh", "Sara Ahmed", "Ayesha Khan", "Manav Joshi", "Neha Kulkarni", "Rohan Kapoor", "Divya Suresh", "Priya Nair", "Arjun Mehta", "Karan Malhotra", "Isha Verma", "Vikram Rao", "Sana Sheikh", "Tanya Malhotra", "Yusuf Ali", "Ananya Gupta", "Priya Desai"];
+const ITEMS = [
+  ["Pro Membership — Monthly", "$59.00"],
+  ["Basic Membership — Monthly", "$29.00"],
+  ["Elite Membership — Annual", "$1,009.00"],
+  ["4-Class Pack", "$65.00"],
+  ["Personal Training — 4 sessions", "$180.00"],
+  ["Nutrition Consult", "$65.00"],
+  ["Body Composition Scan", "$25.00"],
+  ["Drop-in Class", "$18.00"],
+  ["8-Class Pack", "$120.00"],
+  ["Elite Membership — Monthly", "$99.00"],
 ];
-
+const STATUS_CYCLE = ["Paid", "Paid", "Paid", "Pending", "Paid", "Failed", "Paid", "Paid", "Refunded", "Paid", "Paid", "Paid"];
 const STATUS_CLS = { Paid: "badge-volt", Failed: "badge-coral", Refunded: "badge-ink", Pending: "badge-azure" };
+
+const ORDERS = Array.from({ length: 42 }, (_, i) => {
+  var day = 17 - Math.floor(i / 2);
+  var month = day > 0 ? "Aug" : (day > -31 ? "Jul" : "Jun");
+  var dayNum = ((day - 1 + 31) % 31) + 1;
+  return {
+    id: "#ORD-" + (8841 - i),
+    user: NAMES[i % NAMES.length],
+    item: ITEMS[i % ITEMS.length][0],
+    amount: ITEMS[i % ITEMS.length][1],
+    status: STATUS_CYCLE[i % STATUS_CYCLE.length],
+    date: month + " " + String(dayNum).padStart(2, "0") + ", 2026",
+  };
+});
 
 module.exports = function adminOrders(base) {
   return `
@@ -32,21 +49,21 @@ module.exports = function adminOrders(base) {
     </div>`).join("")}
   </div>
 
-  <div class="card mt-8 p-6">
-    <div class="flex flex-wrap gap-2" data-tabs>
-      <button data-tab-btn="all" class="tab-btn active">All Orders</button>
-      <button data-tab-btn="Paid" class="tab-btn">Paid</button>
-      <button data-tab-btn="Pending" class="tab-btn">Pending</button>
-      <button data-tab-btn="Failed" class="tab-btn">Failed</button>
-      <button data-tab-btn="Refunded" class="tab-btn">Refunded</button>
+  <div class="card mt-8 p-6" data-paged-table data-page-size="8" data-item-label="orders">
+    <div class="flex flex-wrap gap-2" data-status-filter>
+      <button data-filter-btn="all" class="tab-btn active">All Orders</button>
+      <button data-filter-btn="Paid" class="tab-btn">Paid</button>
+      <button data-filter-btn="Pending" class="tab-btn">Pending</button>
+      <button data-filter-btn="Failed" class="tab-btn">Failed</button>
+      <button data-filter-btn="Refunded" class="tab-btn">Refunded</button>
     </div>
 
     <div class="mt-6 overflow-x-auto">
       <table class="table-clean min-w-[680px]">
         <thead><tr><th>Order ID</th><th>Customer</th><th>Item</th><th>Amount</th><th>Status</th><th>Date</th><th></th></tr></thead>
-        <tbody>
+        <tbody data-paged-body>
           ${ORDERS.map((o) => `
-          <tr>
+          <tr data-row-status="${o.status}">
             <td class="font-semibold">${o.id}</td>
             <td>${o.user}</td>
             <td class="text-ink-500 dark:text-ink-400">${o.item}</td>
@@ -57,14 +74,15 @@ module.exports = function adminOrders(base) {
           </tr>`).join("")}
         </tbody>
       </table>
+      <p data-paged-empty class="hidden py-10 text-center text-sm text-ink-500 dark:text-ink-400">No orders match this filter.</p>
     </div>
 
     <div class="mt-6 flex flex-col items-center justify-between gap-4 border-t border-ink-100 pt-5 text-sm dark:border-ink-800 sm:flex-row">
-      <p class="text-ink-500 dark:text-ink-400">Showing 1–8 of 486 orders</p>
+      <p data-paged-summary class="text-ink-500 dark:text-ink-400"></p>
       <div class="flex items-center gap-2">
-        <button class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-400 dark:border-ink-700">${icon("chevronLeft","h-4 w-4")}</button>
-        ${[1,2,3].map((n) => `<button class="flex h-9 w-9 items-center justify-center rounded-lg text-sm font-semibold ${n===1 ? "bg-ink-950 text-white dark:bg-white dark:text-ink-950" : "border border-ink-200 dark:border-ink-700"}">${n}</button>`).join("")}
-        <button class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300">${icon("chevronRight","h-4 w-4")}</button>
+        <button data-paged-prev class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-400 disabled:opacity-40 dark:border-ink-700">${icon("chevronLeft","h-4 w-4")}</button>
+        <div class="flex items-center gap-2" data-paged-numbers></div>
+        <button data-paged-next class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-600 disabled:opacity-40 dark:border-ink-700 dark:text-ink-300">${icon("chevronRight","h-4 w-4")}</button>
       </div>
     </div>
   </div>

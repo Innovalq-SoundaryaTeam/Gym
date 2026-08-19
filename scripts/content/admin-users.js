@@ -1,22 +1,38 @@
 const { icon } = require("../icons");
 
-const USERS = [
-  { n: "Meera Sharma", e: "meera.sharma@email.com", plan: "Pro", status: "Active", joined: "Aug 16, 2026", a: 9 },
-  { n: "Kabir Singh", e: "kabir.singh@email.com", plan: "Pro", status: "Active", joined: "Mar 02, 2023", a: 6 },
-  { n: "Ayesha Khan", e: "ayesha.khan@email.com", plan: "Elite", status: "Active", joined: "Jan 14, 2021", a: 11 },
-  { n: "Sara Ahmed", e: "sara.ahmed@email.com", plan: "Basic", status: "Payment Due", joined: "Jun 21, 2024", a: 11 },
-  { n: "Manav Joshi", e: "manav.joshi@email.com", plan: "Elite", status: "Active", joined: "Sep 09, 2022", a: 12 },
-  { n: "Neha Kulkarni", e: "neha.kulkarni@email.com", plan: "Pro", status: "Paused", joined: "Nov 30, 2023", a: 10 },
-  { n: "Arjun Mehta", e: "arjun.mehta@pulsefitness.studio", plan: "Staff — Coach", status: "Active", joined: "Jan 05, 2014", a: 1 },
-  { n: "Priya Nair", e: "priya.nair@pulsefitness.studio", plan: "Staff — Coach", status: "Active", joined: "Feb 18, 2018", a: 2 },
-  { n: "Divya Suresh", e: "divya.suresh@pulsefitness.studio", plan: "Staff — Admin", status: "Active", joined: "Jul 01, 2019", a: 8 },
+const MEMBER_NAMES = ["Meera Sharma", "Kabir Singh", "Ayesha Khan", "Sara Ahmed", "Manav Joshi", "Neha Kulkarni", "Rohan Kapoor", "Tanya Malhotra", "Yusuf Ali", "Ananya Gupta", "Priya Desai"];
+const STAFF = [
+  { n: "Arjun Mehta", e: "arjun.mehta@pulsefitness.studio", plan: "Staff — Coach", joined: "Jan 05, 2014", a: 1 },
+  { n: "Priya Nair", e: "priya.nair@pulsefitness.studio", plan: "Staff — Coach", joined: "Feb 18, 2018", a: 2 },
+  { n: "Rohan Kapoor", e: "rohan.kapoor@pulsefitness.studio", plan: "Staff — Coach", joined: "Mar 22, 2019", a: 3 },
+  { n: "Sana Sheikh", e: "sana.sheikh@pulsefitness.studio", plan: "Staff — Coach", joined: "Jun 09, 2020", a: 4 },
+  { n: "Vikram Rao", e: "vikram.rao@pulsefitness.studio", plan: "Staff — Coach", joined: "Sep 14, 2021", a: 5 },
+  { n: "Isha Verma", e: "isha.verma@pulsefitness.studio", plan: "Staff — Coach", joined: "Nov 03, 2021", a: 6 },
+  { n: "Karan Malhotra", e: "karan.malhotra@pulsefitness.studio", plan: "Staff — Coach", joined: "Apr 17, 2022", a: 7 },
+  { n: "Divya Suresh", e: "divya.suresh@pulsefitness.studio", plan: "Staff — Admin", joined: "Jul 01, 2019", a: 8 },
 ];
+const PLANS = ["Pro", "Basic", "Elite"];
+const AVATARS = [9, 10, 11, 12, 6, 1, 2, 3, 4, 5, 7];
+const STATUS_CYCLE = ["Active", "Active", "Active", "Payment Due", "Active", "Paused", "Active", "Active"];
+const STATUS_CLS = { "Active": "badge-volt", "Payment Due": "badge-coral", "Paused": "badge-ink" };
 
-const STATUS_CLS = {
-  "Active": "badge-volt",
-  "Payment Due": "badge-coral",
-  "Paused": "badge-ink",
-};
+const MEMBERS = Array.from({ length: 28 }, (_, i) => {
+  var n = MEMBER_NAMES[i % MEMBER_NAMES.length];
+  var slug = n.toLowerCase().replace(/\s+/g, ".");
+  var day = 16 - (i % 28);
+  var month = day > 0 ? "Aug" : "Jul";
+  var dayNum = ((day - 1 + 31) % 31) + 1;
+  return {
+    n: i < MEMBER_NAMES.length ? n : n + " " + (Math.floor(i / MEMBER_NAMES.length) + 1),
+    e: slug + (i >= MEMBER_NAMES.length ? (Math.floor(i / MEMBER_NAMES.length) + 1) : "") + "@email.com",
+    plan: PLANS[i % PLANS.length],
+    status: STATUS_CYCLE[i % STATUS_CYCLE.length],
+    joined: month + " " + String(dayNum).padStart(2, "0") + ", 2026",
+    a: AVATARS[i % AVATARS.length],
+  };
+});
+
+const USERS = MEMBERS.concat(STAFF.map((s) => ({ ...s, status: "Active" })));
 
 module.exports = function adminUsers(base) {
   return `
@@ -37,7 +53,7 @@ module.exports = function adminUsers(base) {
     </div>`).join("")}
   </div>
 
-  <div class="card mt-8 p-6">
+  <div class="card mt-8 p-6" data-paged-table data-page-size="9" data-item-label="users">
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div class="relative w-full sm:max-w-xs">
         ${icon("search","pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400")}
@@ -58,13 +74,13 @@ module.exports = function adminUsers(base) {
             <th>User</th><th>Plan</th><th>Status</th><th>Joined</th><th class="pr-2 text-right">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-paged-body>
           ${USERS.map((u) => `
-          <tr>
+          <tr data-row-status="${u.status}">
             <td class="pl-2"><input type="checkbox" class="rounded border-ink-300" /></td>
             <td>
               <div class="flex items-center gap-3">
-                <img src="${base}assets/images/avatars/avatar-${u.a}.svg" class="h-9 w-9 rounded-full" alt="${u.n}" />
+                <img src="${base}assets/images/avatars/avatar-${u.a}.jpg" class="h-9 w-9 rounded-full object-cover" alt="${u.n}" />
                 <div>
                   <p class="font-semibold">${u.n}</p>
                   <p class="text-xs text-ink-500 dark:text-ink-400">${u.e}</p>
@@ -84,14 +100,15 @@ module.exports = function adminUsers(base) {
           </tr>`).join("")}
         </tbody>
       </table>
+      <p data-paged-empty class="hidden py-10 text-center text-sm text-ink-500 dark:text-ink-400">No users match this filter.</p>
     </div>
 
     <div class="mt-6 flex flex-col items-center justify-between gap-4 border-t border-ink-100 pt-5 text-sm dark:border-ink-800 sm:flex-row">
-      <p class="text-ink-500 dark:text-ink-400">Showing 1–9 of 1,252 users</p>
+      <p data-paged-summary class="text-ink-500 dark:text-ink-400"></p>
       <div class="flex items-center gap-2">
-        <button class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-400 dark:border-ink-700">${icon("chevronLeft","h-4 w-4")}</button>
-        ${[1,2,3].map((n) => `<button class="flex h-9 w-9 items-center justify-center rounded-lg text-sm font-semibold ${n===1 ? "bg-ink-950 text-white dark:bg-white dark:text-ink-950" : "border border-ink-200 dark:border-ink-700"}">${n}</button>`).join("")}
-        <button class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-600 dark:border-ink-700 dark:text-ink-300">${icon("chevronRight","h-4 w-4")}</button>
+        <button data-paged-prev class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-400 disabled:opacity-40 dark:border-ink-700">${icon("chevronLeft","h-4 w-4")}</button>
+        <div class="flex items-center gap-2" data-paged-numbers></div>
+        <button data-paged-next class="flex h-9 w-9 items-center justify-center rounded-lg border border-ink-200 text-ink-600 disabled:opacity-40 dark:border-ink-700 dark:text-ink-300">${icon("chevronRight","h-4 w-4")}</button>
       </div>
     </div>
   </div>

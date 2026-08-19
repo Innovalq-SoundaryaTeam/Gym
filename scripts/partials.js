@@ -6,15 +6,9 @@ const NAV = [
       { label: "Home — Elite Studio", href: "home-2.html", desc: "Boutique / premium studio concept" },
     ] },
   { key: "about", label: "About", href: "about.html" },
-  { key: "classes", label: "Classes", href: "classes.html", dropdown: [
-      { label: "All Classes", href: "classes.html", desc: "Yoga, Zumba, strength, cardio & more" },
-      { label: "Class Details", href: "class-details.html", desc: "Schedule, pricing & FAQs" },
-    ] },
+  { key: "classes", label: "Classes", href: "classes.html" },
   { key: "trainers", label: "Trainers", href: "trainers.html" },
-  { key: "blog", label: "Blog", href: "blog.html", dropdown: [
-      { label: "All Articles", href: "blog.html", desc: "Training tips, nutrition & news" },
-      { label: "Article Details", href: "blog-details.html", desc: "Full post with sidebar" },
-    ] },
+  { key: "blog", label: "Blog", href: "blog.html" },
   { key: "membership", label: "Membership", href: "membership.html" },
   { key: "contact", label: "Contact", href: "contact.html" },
 ];
@@ -23,7 +17,7 @@ function logoMark(cls) {
   // Inlined (not <img>) so the wordmark's fill="currentColor" correctly
   // inherits the surrounding text color in both light & dark mode.
   return `
-  <svg viewBox="0 0 180 40" class="${cls || 'h-7 w-auto'}" role="img" aria-label="PULSE Fitness Studio">
+  <svg viewBox="0 0 180 40" class="${cls || 'h-7 w-auto'}" style="direction:ltr" role="img" aria-label="PULSE Fitness Studio">
     <g>
       <rect x="0" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
       <rect x="8" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
@@ -31,7 +25,7 @@ function logoMark(cls) {
       <rect x="28" y="9" width="6" height="22" rx="1.5" fill="#c4ff1e"/>
       <rect x="36" y="14" width="6" height="12" rx="1.5" fill="#c4ff1e"/>
     </g>
-    <text x="50" y="28" font-family="Sora, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="0.5" fill="currentColor">PULSE</text>
+    <text x="50" y="28" font-family="Sora, Arial, sans-serif" font-weight="800" font-size="24" letter-spacing="0.5" fill="currentColor" style="direction:ltr;unicode-bidi:bidi-override">PULSE</text>
   </svg>`;
 }
 
@@ -64,7 +58,7 @@ function renderHead({ title, description, base = "", bodyId = "" }) {
   <meta property="og:type" content="website" />
   <meta property="og:title" content="${fullTitle}" />
   <meta property="og:description" content="${description}" />
-  <meta property="og:image" content="${base}assets/images/banners/hero-1.svg" />
+  <meta property="og:image" content="${base}assets/images/banners/hero-1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${fullTitle}" />
   <meta name="twitter:description" content="${description}" />
@@ -175,8 +169,8 @@ function renderFooter({ base = "" }) {
           </a>
           <p class="mt-4 max-w-xs text-sm text-ink-500 dark:text-ink-400">Your neighbourhood strength &amp; conditioning gym — expert coaching, honest programming, and a community that shows up.</p>
           <div class="mt-5 flex items-center gap-3">
-            ${["facebook","instagram","x","youtube","linkedin"].map((s) => `
-            <a href="#" aria-label="${s}" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:border-volt-500 hover:text-volt-600 dark:border-ink-700 dark:text-ink-400 dark:hover:text-volt-300 transition-colors">${icon(s, "h-4 w-4")}</a>`).join("")}
+            ${[["facebook","https://www.facebook.com/"],["instagram","https://www.instagram.com/"],["x","https://www.x.com/"],["youtube","https://www.youtube.com/"],["linkedin","https://www.linkedin.com/"]].map(([s,url]) => `
+            <a href="${url}" target="_blank" rel="noopener" aria-label="${s}" class="flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 text-ink-500 hover:border-volt-500 hover:text-volt-600 dark:border-ink-700 dark:text-ink-400 dark:hover:text-volt-300 transition-colors">${icon(s, "h-4 w-4")}</a>`).join("")}
           </div>
         </div>
         <div>

@@ -10,7 +10,7 @@ module.exports = function login(base) {
           <h1 class="mt-4 text-3xl font-extrabold">Welcome back.</h1>
           <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">Log in to book classes, track attendance and view your workout plan.</p>
 
-          <form class="mt-8 space-y-5">
+          <form class="mt-8 space-y-5" data-redirect="${base}dashboard/index.html">
             <div>
               <label class="label">Email Address</label>
               <input type="email" required placeholder="you@example.com" class="input" />
@@ -28,7 +28,7 @@ module.exports = function login(base) {
               </label>
               <a href="#" class="font-semibold text-volt-600 dark:text-volt-400">Forgot password?</a>
             </div>
-            <a href="${base}dashboard/index.html" class="btn-primary btn-block">Log In</a>
+            <button type="submit" class="btn-primary btn-block">Log In</button>
           </form>
 
           <div class="my-6 flex items-center gap-4">
@@ -51,11 +51,11 @@ module.exports = function login(base) {
       </div>
 
       <div class="relative hidden overflow-hidden bg-ink-950 lg:block">
-        <img src="${base}assets/images/banners/hero-2.svg" class="h-full w-full object-cover opacity-70" alt="" />
+        <img src="${base}assets/images/banners/hero-2.jpg" class="h-full w-full object-cover opacity-70" alt="" />
         <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent p-12">
           <p class="text-2xl font-bold text-white">"Booking classes takes ten seconds. Just show up and train."</p>
           <div class="mt-4 flex items-center gap-3">
-            <img src="${base}assets/images/avatars/avatar-6.svg" class="h-10 w-10 rounded-full" alt="" />
+            <img src="${base}assets/images/avatars/avatar-6.jpg" class="h-10 w-10 rounded-full object-cover" alt="" />
             <div>
               <p class="text-sm font-bold text-white">Kabir Singh</p>
               <p class="text-xs text-ink-400">Member since 2023</p>

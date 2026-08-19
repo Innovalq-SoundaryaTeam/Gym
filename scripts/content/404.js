@@ -4,7 +4,7 @@ module.exports = function notFound(base) {
   return `
   <main id="main">
     <section class="relative flex min-h-[calc(100vh-73px)] items-center overflow-hidden bg-ink-950">
-      <img src="${base}assets/images/banners/facility-cardio.svg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
+      <img src="${base}assets/images/banners/facility-cardio.jpg" class="absolute inset-0 h-full w-full object-cover opacity-30" alt="" />
       <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/40"></div>
       <div class="relative mx-auto max-w-2xl px-5 py-24 text-center sm:px-8">
         <p class="text-8xl font-extrabold text-volt-400 sm:text-9xl">404</p>

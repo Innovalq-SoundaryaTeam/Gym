@@ -3,9 +3,8 @@ const { icon } = require("../icons");
 const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const SCHEDULE = {
   Mon: [
-    { t: "Strength Lab", time: "6:00 AM", coach: "Arjun Mehta", k: "strength", spots: "4 left", booked: false },
     { t: "Cardio Blast", time: "6:30 AM", coach: "Rohan Kapoor", k: "cardio", spots: "Open", booked: false },
-    { t: "Strength Lab (PM)", time: "6:00 PM", coach: "Arjun Mehta", k: "strength", spots: "2 left", booked: true },
+    { t: "Strength Lab", time: "6:00 PM", coach: "Arjun Mehta", k: "strength", spots: "2 left", booked: true },
     { t: "Zumba Party", time: "7:00 PM", coach: "Sana Sheikh", k: "zumba", spots: "Open", booked: false },
   ],
   Tue: [
@@ -59,8 +58,9 @@ module.exports = function dashBook(base) {
   <div data-tab-panel="${d}" class="${i===0 ? "" : "hidden"} mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     ${(SCHEDULE[d] || []).map((c) => `
     <div class="card overflow-hidden">
-      <div class="relative h-28 overflow-hidden">
-        <img src="${base}assets/images/thumbs/${c.k}.svg" class="h-full w-full object-cover" alt="${c.t}" />
+      <div class="relative h-40 overflow-hidden bg-ink-950">
+        <img src="${base}assets/images/thumbs/${c.k}.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full scale-110 object-cover object-center blur-md brightness-50" />
+        <img src="${base}assets/images/thumbs/${c.k}.jpg" class="relative h-full w-full object-contain" alt="${c.t}" />
         <span class="absolute right-3 top-3 badge-volt !bg-white/90 dark:!bg-ink-950/80">${c.spots}</span>
       </div>
       <div class="p-4">

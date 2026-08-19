@@ -31,7 +31,7 @@ module.exports = function adminMessages(base) {
       <div class="max-h-[640px] divide-y divide-ink-100 overflow-y-auto dark:divide-ink-800">
         ${MESSAGES.map((m, i) => `
         <button class="flex w-full items-start gap-3 p-4 text-left hover:bg-ink-50 dark:hover:bg-ink-800/60 ${i===0 ? "bg-ink-50 dark:bg-ink-800/60" : ""}">
-          <img src="${base}assets/images/avatars/avatar-${m.a}.svg" class="h-10 w-10 shrink-0 rounded-full" alt="${m.n}" />
+          <img src="${base}assets/images/avatars/avatar-${m.a}.jpg" class="h-10 w-10 shrink-0 rounded-full object-cover" alt="${m.n}" />
           <div class="min-w-0 flex-1">
             <div class="flex items-center justify-between gap-2">
               <p class="truncate text-sm font-bold ${m.unread ? "" : "text-ink-600 dark:text-ink-300"}">${m.n}</p>
@@ -49,7 +49,7 @@ module.exports = function adminMessages(base) {
     <div class="flex flex-col lg:col-span-3">
       <div class="flex items-start justify-between gap-4 border-b border-ink-100 p-6 dark:border-ink-800">
         <div class="flex items-center gap-3">
-          <img src="${base}assets/images/avatars/avatar-6.svg" class="h-12 w-12 rounded-full" alt="Kabir Singh" />
+          <img src="${base}assets/images/avatars/avatar-6.jpg" class="h-12 w-12 rounded-full object-cover" alt="Kabir Singh" />
           <div>
             <p class="font-bold">Kabir Singh</p>
             <p class="text-xs text-ink-500 dark:text-ink-400">kabir.singh@email.com · Pro Member</p>
