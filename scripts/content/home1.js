@@ -123,14 +123,14 @@ module.exports = function home1(base) {
           { i: "users", t: "Bring a Friend", d: "Refer a friend and both get 15% off your next renewal.", tag: "Referral" },
           { i: "award", t: "Student Discount", d: "20% off all monthly plans with a valid student ID.", tag: "Verified ID" },
         ].map((o) => `
-        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6">
           <div class="flex items-center justify-between">
             <div class="icon-tile">${icon(o.i, "h-5 w-5")}</div>
             <span class="badge-volt">${o.tag}</span>
           </div>
           <h3 class="mt-4 text-lg font-bold text-white">${o.t}</h3>
           <p class="mt-2 text-sm text-ink-400">${o.d}</p>
-          <a href="${base}membership.html" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-volt-400 hover:text-volt-300">Claim Offer ${icon("arrowRight","h-4 w-4")}</a>
+          <a href="${base}membership.html" class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-volt-400 hover:text-volt-300">Claim Offer ${icon("arrowRight","h-4 w-4")}</a>
         </div>`).join("")}
       </div>
     </section>
