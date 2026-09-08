@@ -42,7 +42,7 @@ function dirToggleButton(size) {
   return `
   <button type="button" data-dir-toggle aria-label="Toggle LTR / RTL layout"
     class="flex ${size || 'h-10 w-10'} items-center justify-center rounded-full border border-ink-200 text-ink-600 hover:border-ink-900 hover:text-ink-950 dark:border-ink-700 dark:text-ink-300 dark:hover:border-white dark:hover:text-white transition-colors" title="Toggle RTL / LTR">
-    ${icon("globe", "h-[18px] w-[18px]")}
+    ${icon("textDirection", "h-[18px] w-[18px]")}
   </button>`;
 }
 
@@ -132,7 +132,7 @@ function renderHeader({ active = "", base = "" }) {
       <div class="hidden items-center gap-2 lg:flex">
         ${themeToggleButton()}
         ${dirToggleButton()}
-        <a href="${base}login.html" class="btn-ghost btn-sm">Log In</a>
+        <a href="${base}login.html" class="btn-outline btn-sm">Log In</a>
         <a href="${base}membership.html" class="btn-primary btn-sm">
           Join Now ${icon("arrowRight", "h-4 w-4")}
         </a>
@@ -152,7 +152,7 @@ function renderHeader({ active = "", base = "" }) {
       <div class="mt-5 flex flex-col gap-3">
         <a href="${base}login.html" class="btn-outline btn-block">Log In</a>
         <a href="${base}register.html" class="btn-primary btn-block">Join Now</a>
-        <button type="button" data-dir-toggle class="btn-ghost btn-block justify-center">${icon("globe","h-4 w-4")} Toggle RTL / LTR</button>
+        <button type="button" data-dir-toggle class="btn-ghost btn-block justify-center">${icon("textDirection","h-4 w-4")} Toggle RTL / LTR</button>
       </div>
     </div>
   </header>`;

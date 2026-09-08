@@ -8,6 +8,7 @@ const RAW = {
   sun: '<circle cx="12" cy="12" r="4.2"/><line x1="12" y1="1.5" x2="12" y2="4.2"/><line x1="12" y1="19.8" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.2" y2="12"/><line x1="19.8" y1="12" x2="22.5" y2="12"/><line x1="4.5" y1="4.5" x2="6.4" y2="6.4"/><line x1="17.6" y1="17.6" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.4" y2="17.6"/><line x1="17.6" y1="6.4" x2="19.5" y2="4.5"/>',
   moon: '<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/>',
   globe: '<circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/>',
+  textDirection: '<line x1="4" y1="8" x2="17" y2="8"/><polyline points="13 4 17 8 13 12"/><line x1="20" y1="16" x2="7" y2="16"/><polyline points="11 20 7 16 11 12"/>',
   chevronDown: '<polyline points="6 9 12 15 18 9"/>',
   chevronRight: '<polyline points="9 6 15 12 9 18"/>',
   chevronLeft: '<polyline points="15 6 9 12 15 18"/>',
