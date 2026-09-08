@@ -74,7 +74,7 @@ module.exports = function home2(base) {
           <ul class="mt-5 space-y-2">
             ${p.tags.map((tag) => `<li class="flex items-center gap-2 text-sm">${icon("check","h-4 w-4 text-volt-600 dark:text-volt-400")}${tag}</li>`).join("")}
           </ul>
-          <a href="${base}class-details-${p.k}.html" class="btn-outline btn-block mt-6">Learn More</a>
+          <a href="${base}class-details-${p.k}.html" class="${i===1 ? "btn-primary" : "btn-outline"} btn-block mt-6">Learn More</a>
         </div>`).join("")}
       </div>
     </section>
