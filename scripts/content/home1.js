@@ -8,6 +8,7 @@ module.exports = function home1(base) {
     <section class="relative overflow-hidden bg-ink-950">
       <img src="${base}assets/images/banners/hero-1.jpg" alt="" class="absolute inset-0 h-full w-full object-cover opacity-90" />
       <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/20"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-ink-950/95 via-ink-950/60 to-transparent lg:to-ink-950/10"></div>
       <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-2 lg:pb-28 lg:pt-28">
         <div data-reveal class="translate-y-4 opacity-0 transition-all duration-700">
           <span class="eyebrow">${icon("flame", "h-3.5 w-3.5")} Neighbourhood Gym · Est. 2014</span>
@@ -16,7 +17,7 @@ module.exports = function home1(base) {
             <span class="text-volt-400">Recover smart.</span><br />
             Show up daily.
           </h1>
-          <p class="mt-6 max-w-lg text-base text-ink-300 sm:text-lg">
+          <p class="mt-6 max-w-lg text-base text-ink-100 sm:text-lg">
             PULSE is a full-service strength &amp; conditioning gym with group classes, personal coaching, and a
             members dashboard that keeps your bookings, attendance and workout plans in one place.
           </p>
@@ -317,10 +318,11 @@ module.exports = function home1(base) {
     <!-- ============ CTA BAND ============ -->
     <section class="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
       <div class="relative overflow-hidden rounded-3xl bg-ink-950 px-8 py-16 text-center sm:px-16">
-        <img src="${base}assets/images/banners/cta-band.jpg" class="absolute inset-0 h-full w-full object-cover opacity-40" alt="" />
+        <img src="${base}assets/images/banners/cta-band.jpg" class="absolute inset-0 h-full w-full object-cover opacity-20" alt="" />
+        <div class="absolute inset-0 bg-ink-950/80"></div>
         <div class="relative">
           <h2 class="section-title text-white">Your first class is on us.</h2>
-          <p class="mx-auto mt-4 max-w-xl text-ink-300">Create a free account, pick a class, and see why PULSE members stay for years, not months.</p>
+          <p class="mx-auto mt-4 max-w-xl text-ink-100">Create a free account, pick a class, and see why PULSE members stay for years, not months.</p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href="${base}register.html" class="btn-primary btn-lg">Start Free Trial</a>
             <a href="${base}contact.html" class="btn-outline btn-lg !border-white/30 !text-white hover:!bg-white/10">Talk to Us</a>
