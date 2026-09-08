@@ -61,7 +61,7 @@ module.exports = function home1(base) {
                 <div class="icon-tile !bg-volt-400/20">${icon(c.i, "h-5 w-5")}</div>
                 <div class="flex-1">
                   <p class="text-sm font-semibold text-white">${c.n}</p>
-                  <p class="text-xs text-ink-400">${c.t} · ${c.c}</p>
+                  <p class="text-xs text-ink-200">${c.t} · ${c.c}</p>
                 </div>
                 ${icon("chevronRight", "h-4 w-4 text-ink-500")}
               </div>`).join("")}
