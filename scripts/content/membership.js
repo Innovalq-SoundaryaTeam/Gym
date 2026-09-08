@@ -95,7 +95,7 @@ module.exports = function membership(base) {
           <div class="flex gap-0.5 text-volt-500">${Array(5).fill(icon("star","h-4 w-4 fill-current")).join("")}</div>
           <p class="mt-4 text-sm text-ink-600 dark:text-ink-300">"${t.q}"</p>
           <div class="mt-auto flex items-center gap-3 pt-5">
-            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 shrink-0 rounded-full object-cover" alt="${t.n}" />
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 shrink-0 rounded-full object-cover object-top" alt="${t.n}" />
             <p class="text-sm font-bold">${t.n}</p>
           </div>
         </div>`).join("")}

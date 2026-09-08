@@ -258,7 +258,7 @@ module.exports = function classDetails(base, key) {
         <div class="card p-6">
           <p class="font-bold">Your coach</p>
           <div class="mt-4 flex items-center gap-3">
-            <img src="${base}assets/images/avatars/avatar-${c.coachAvatar}.jpg" class="h-14 w-14 rounded-full object-cover" alt="${c.coach}" />
+            <img src="${base}assets/images/avatars/avatar-${c.coachAvatar}.jpg" class="h-14 w-14 rounded-full object-cover object-top" alt="${c.coach}" />
             <div>
               <p class="font-bold">${c.coach}</p>
               <p class="text-xs text-ink-500 dark:text-ink-400">${c.coachRole}</p>

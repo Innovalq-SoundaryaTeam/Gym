@@ -33,7 +33,7 @@ module.exports = function home2(base) {
           </div>
           <div class="absolute -left-4 bottom-6 hidden rounded-2xl bg-white p-4 shadow-card dark:bg-ink-900 dark:shadow-card-dark sm:flex items-center gap-3">
             <div class="flex -space-x-3">
-              ${[1,2,3,4].map((a) => `<img src="${base}assets/images/avatars/avatar-${a}.jpg" class="h-9 w-9 rounded-full object-cover ring-2 ring-white dark:ring-ink-900" alt="member" />`).join("")}
+              ${[1,2,3,4].map((a) => `<img src="${base}assets/images/avatars/avatar-${a}.jpg" class="h-9 w-9 rounded-full object-cover object-top ring-2 ring-white dark:ring-ink-900" alt="member" />`).join("")}
             </div>
             <div>
               <p class="text-sm font-bold">240+ athletes</p>
@@ -142,7 +142,7 @@ module.exports = function home2(base) {
               ${icon("quote", "mx-auto h-8 w-8 text-volt-400")}
               <p class="mt-6 text-lg font-medium text-white sm:text-xl">"${t.q}"</p>
               <div class="mt-6 flex items-center justify-center gap-3">
-                <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-11 w-11 rounded-full object-cover" alt="${t.n}" />
+                <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-11 w-11 rounded-full object-cover object-top" alt="${t.n}" />
                 <div class="text-left">
                   <p class="text-sm font-bold text-white">${t.n}</p>
                   <p class="text-xs text-ink-400">${t.r}</p>

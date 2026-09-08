@@ -55,7 +55,7 @@ module.exports = function login(base) {
         <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent p-12">
           <p class="text-2xl font-bold text-white">"Booking classes takes ten seconds. Just show up and train."</p>
           <div class="mt-4 flex items-center gap-3">
-            <img src="${base}assets/images/avatars/avatar-6.jpg" class="h-10 w-10 rounded-full object-cover" alt="" />
+            <img src="${base}assets/images/avatars/avatar-6.jpg" class="h-10 w-10 rounded-full object-cover object-top" alt="" />
             <div>
               <p class="text-sm font-bold text-white">Kabir Singh</p>
               <p class="text-xs text-ink-400">Member since 2023</p>

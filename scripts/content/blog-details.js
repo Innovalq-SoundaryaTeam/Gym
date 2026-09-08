@@ -155,7 +155,7 @@ module.exports = function blogDetails(base, key) {
       <span class="badge-volt mt-6">${p.cat}</span>
       <h1 class="section-title mt-4">${p.t}</h1>
       <div class="mt-5 flex items-center gap-3 text-sm text-ink-500 dark:text-ink-400">
-        <img src="${base}assets/images/avatars/avatar-${p.avatar}.jpg" class="h-9 w-9 rounded-full object-cover" alt="${p.authorName}" />
+        <img src="${base}assets/images/avatars/avatar-${p.avatar}.jpg" class="h-9 w-9 rounded-full object-cover object-top" alt="${p.authorName}" />
         <span class="font-semibold text-ink-800 dark:text-ink-100">${p.authorName}</span>
         <span>·</span><span>${p.d}</span><span>·</span><span>${p.read}</span>
       </div>
@@ -193,7 +193,7 @@ module.exports = function blogDetails(base, key) {
 
         <!-- author box -->
         <div class="mt-8 flex items-center gap-4 rounded-2xl border border-ink-100 p-6 dark:border-ink-800">
-          <img src="${base}assets/images/avatars/avatar-${p.avatar}.jpg" class="h-16 w-16 rounded-full object-cover" alt="${p.authorName}" />
+          <img src="${base}assets/images/avatars/avatar-${p.avatar}.jpg" class="h-16 w-16 rounded-full object-cover object-top" alt="${p.authorName}" />
           <div>
             <p class="font-bold">${p.authorName}</p>
             <p class="text-sm text-ink-500 dark:text-ink-400">${p.authorBio}</p>

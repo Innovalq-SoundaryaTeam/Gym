@@ -80,7 +80,7 @@ module.exports = function adminUsers(base) {
             <td class="pl-2"><input type="checkbox" class="rounded border-ink-300" /></td>
             <td>
               <div class="flex items-center gap-3">
-                <img src="${base}assets/images/avatars/avatar-${u.a}.jpg" class="h-9 w-9 rounded-full object-cover" alt="${u.n}" />
+                <img src="${base}assets/images/avatars/avatar-${u.a}.jpg" class="h-9 w-9 rounded-full object-cover object-top" alt="${u.n}" />
                 <div>
                   <p class="font-semibold">${u.n}</p>
                   <p class="text-xs text-ink-500 dark:text-ink-400">${u.e}</p>

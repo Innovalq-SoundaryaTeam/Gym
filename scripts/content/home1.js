@@ -248,7 +248,7 @@ module.exports = function home1(base) {
               ${icon("quote", "mx-auto h-8 w-8 text-volt-400")}
               <p class="mt-6 text-lg font-medium text-white sm:text-xl">"${t.q}"</p>
               <div class="mt-6 flex items-center justify-center gap-3">
-                <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-11 w-11 rounded-full object-cover" alt="${t.n}" />
+                <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-11 w-11 rounded-full object-cover object-top" alt="${t.n}" />
                 <div class="text-left">
                   <p class="text-sm font-bold text-white">${t.n}</p>
                   <p class="text-xs text-ink-400">${t.r}</p>

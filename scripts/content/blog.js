@@ -49,7 +49,7 @@ module.exports = function blog(base) {
             </div>
             <a href="${base}blog-details-${p.img}.html"><h3 class="mt-3 font-bold leading-snug group-hover:text-volt-600 dark:group-hover:text-volt-300">${p.t}</h3></a>
             <div class="mt-4 flex items-center gap-2 border-t border-ink-100 pt-4 dark:border-ink-800">
-              <img src="${base}assets/images/avatars/avatar-${p.a}.jpg" class="h-7 w-7 rounded-full object-cover" alt="author" />
+              <img src="${base}assets/images/avatars/avatar-${p.a}.jpg" class="h-7 w-7 rounded-full object-cover object-top" alt="author" />
               <span class="text-xs text-ink-500 dark:text-ink-400">${p.d}</span>
             </div>
           </div>
