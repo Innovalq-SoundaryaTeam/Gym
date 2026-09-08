@@ -83,11 +83,11 @@ module.exports = function trainers(base) {
           { q: "Priya's mobility cues carried over into every other class I take. She notices things other coaches miss.", n: "Simran Kaur", a: 9 },
           { q: "Rohan's HIIT programming is genuinely smart — never just random intervals, always building toward something.", n: "Devika Menon", a: 11 },
         ].map((t) => `
-        <div class="card p-6">
+        <div class="card flex h-full flex-col p-6">
           <div class="flex gap-0.5 text-volt-500">${Array(5).fill(icon("star","h-4 w-4 fill-current")).join("")}</div>
           <p class="mt-4 text-sm text-ink-600 dark:text-ink-300">"${t.q}"</p>
-          <div class="mt-5 flex items-center gap-3">
-            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 rounded-full object-cover" alt="${t.n}" />
+          <div class="mt-auto flex items-center gap-3 pt-5">
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 shrink-0 rounded-full object-cover" alt="${t.n}" />
             <p class="text-sm font-bold">${t.n}</p>
           </div>
         </div>`).join("")}

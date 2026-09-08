@@ -91,11 +91,11 @@ module.exports = function membership(base) {
           { q: "No lock-in contract made trying PULSE an easy decision. I upgraded to Elite after month two.", n: "Aman Verma", a: 4 },
           { q: "The nutrition coaching on Elite is worth it alone — my coach adjusts macros every check-in based on real progress.", n: "Nikhil Bhatt", a: 7 },
         ].map((t) => `
-        <div class="card p-6">
+        <div class="card flex h-full flex-col p-6">
           <div class="flex gap-0.5 text-volt-500">${Array(5).fill(icon("star","h-4 w-4 fill-current")).join("")}</div>
           <p class="mt-4 text-sm text-ink-600 dark:text-ink-300">"${t.q}"</p>
-          <div class="mt-5 flex items-center gap-3">
-            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 rounded-full object-cover" alt="${t.n}" />
+          <div class="mt-auto flex items-center gap-3 pt-5">
+            <img src="${base}assets/images/avatars/avatar-${t.a}.jpg" class="h-10 w-10 shrink-0 rounded-full object-cover" alt="${t.n}" />
             <p class="text-sm font-bold">${t.n}</p>
           </div>
         </div>`).join("")}
