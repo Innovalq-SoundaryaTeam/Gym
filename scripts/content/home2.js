@@ -119,7 +119,7 @@ module.exports = function home2(base) {
               <div><p class="font-bold">${t}</p><p class="mt-1 text-sm text-ink-500 dark:text-ink-400">${d}</p></div>
             </div>`).join("")}
           </div>
-          <a href="${base}dashboard/index.html" class="btn-dark mt-8 inline-flex">Preview Dashboard ${icon("arrowRight","h-4 w-4")}</a>
+          <a href="${base}dashboard/index.html" class="btn-primary mt-8 inline-flex">Preview Dashboard ${icon("arrowRight","h-4 w-4")}</a>
         </div>
       </div>
     </section>
