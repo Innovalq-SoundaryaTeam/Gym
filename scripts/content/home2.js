@@ -151,6 +151,12 @@ module.exports = function home2(base) {
             </div>
           </div>`).join("")}
         </div>
+        <button type="button" data-slider-prev aria-label="Previous testimonial" class="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-ink-950/60 text-white backdrop-blur transition-colors hover:border-white hover:bg-white/10 sm:left-0">
+          ${icon("chevronLeft","h-5 w-5")}
+        </button>
+        <button type="button" data-slider-next aria-label="Next testimonial" class="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-ink-950/60 text-white backdrop-blur transition-colors hover:border-white hover:bg-white/10 sm:right-0">
+          ${icon("chevronRight","h-5 w-5")}
+        </button>
         <div data-slider-dots class="mt-6 flex items-center justify-center gap-2"></div>
       </div>
     </section>
