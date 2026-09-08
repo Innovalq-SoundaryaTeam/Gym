@@ -27,7 +27,7 @@ function sidebar({ active, base, nav, brandHref, roleLabel }) {
     </nav>
     <div class="space-y-1 border-t border-ink-100 px-4 py-4 dark:border-ink-800">
       <a href="${base}contact.html" class="side-link">${icon("messageCircle","h-[18px] w-[18px]")}Help &amp; Support</a>
-      <a href="${base}index.html" class="side-link">${icon("logOut","h-[18px] w-[18px]")}Exit to Site</a>
+      <a href="${base}login.html" class="side-link !text-coral-500">${icon("logOut","h-[18px] w-[18px]")}Log Out</a>
     </div>
   </aside>
   <div data-sidebar-backdrop class="fixed inset-0 z-30 hidden bg-ink-950/50 lg:hidden"></div>`;

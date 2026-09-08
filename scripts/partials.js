@@ -10,6 +10,7 @@ const NAV = [
   { key: "trainers", label: "Trainers", href: "trainers.html" },
   { key: "blog", label: "Blog", href: "blog.html" },
   { key: "membership", label: "Membership", href: "membership.html" },
+  { key: "dashboard", label: "Dashboard", href: "dashboard/index.html" },
   { key: "contact", label: "Contact", href: "contact.html" },
 ];
 
