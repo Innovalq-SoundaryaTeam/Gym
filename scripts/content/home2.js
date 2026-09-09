@@ -66,7 +66,7 @@ module.exports = function home2(base) {
           { i: "activity", t: "Hybrid Conditioning", d: "Strength + engine work for CrossFit-style competitors.", tags: ["Metcons", "Mobility", "Weekly testing"], k: "hiit" },
           { i: "target", t: "Physique & Recovery", d: "Body recomposition with sleep & nutrition coaching.", tags: ["Macros", "Sauna", "Bi-weekly scans"], k: "pilates" },
         ].map((p, i) => `
-        <div data-reveal style="transition-delay:${i*80}ms" class="card translate-y-4 p-7 opacity-0 transition-all duration-700 ${i===1 ? "ring-2 ring-volt-400" : ""}">
+        <div data-reveal style="transition-delay:${i*80}ms" class="card flex h-full translate-y-4 flex-col p-7 opacity-0 transition-all duration-700 ${i===1 ? "ring-2 ring-volt-400" : ""}">
           ${i===1 ? `<span class="badge-volt mb-3">Most Popular</span>` : ""}
           <div class="icon-tile">${icon(p.i,"h-5 w-5")}</div>
           <h3 class="mt-4 text-xl font-bold">${p.t}</h3>
@@ -74,7 +74,7 @@ module.exports = function home2(base) {
           <ul class="mt-5 space-y-2">
             ${p.tags.map((tag) => `<li class="flex items-center gap-2 text-sm">${icon("check","h-4 w-4 text-volt-600 dark:text-volt-400")}${tag}</li>`).join("")}
           </ul>
-          <a href="${base}class-details-${p.k}.html" class="${i===1 ? "btn-primary" : "btn-outline"} btn-block mt-6">Learn More</a>
+          <a href="${base}class-details-${p.k}.html" class="${i===1 ? "btn-primary" : "btn-outline"} btn-block mt-auto pt-6">Learn More</a>
         </div>`).join("")}
       </div>
     </section>
