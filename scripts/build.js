@@ -174,13 +174,6 @@ const PAGES = [
     content: require("./content/contact"),
   },
   {
-    out: "login.html", active: "", base: "",
-    title: "Member Login",
-    description: "Log in to your PULSE member dashboard.",
-    content: require("./content/login"),
-    bodyClass: "auth-page",
-  },
-  {
     out: "register.html", active: "", base: "",
     title: "Create Your Account",
     description: "Join PULSE Fitness Studio and get instant access to your member dashboard.",
@@ -201,6 +194,12 @@ const MINIMAL_PAGES = [
     title: "Coming Soon",
     description: "PULSE Fitness Studio is launching soon — leave your email for early access.",
     content: require("./content/coming-soon"),
+  },
+  {
+    out: "login.html", base: "",
+    title: "Member Login",
+    description: "Log in to your PULSE member dashboard.",
+    content: require("./content/login"),
   },
 ];
 

@@ -1,9 +1,21 @@
 const { icon } = require("../icons");
+const { themeToggleButton, dirToggleButton, logoMark } = require("../partials");
 
 module.exports = function login(base) {
   return `
-  <main id="main">
-    <section class="mx-auto grid min-h-[calc(100vh-73px)] max-w-7xl grid-cols-1 lg:grid-cols-2">
+  <div class="flex min-h-screen flex-col">
+    <header class="flex items-center justify-between px-6 py-6 sm:px-10">
+      <a href="${base}index.html" class="flex items-center gap-2 text-ink-950 dark:text-white">
+        ${logoMark("h-7 w-auto")}
+      </a>
+      <div class="flex items-center gap-2">
+        ${themeToggleButton("h-10 w-10")}
+        ${dirToggleButton("h-10 w-10")}
+      </div>
+    </header>
+
+  <main id="main" class="flex-1">
+    <section class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       <div class="flex items-center justify-center px-5 py-16 sm:px-8">
         <div class="w-full max-w-sm">
           <span class="eyebrow">Member Login</span>
@@ -64,5 +76,11 @@ module.exports = function login(base) {
         </div>
       </div>
     </section>
-  </main>`;
+  </main>
+
+    <footer class="py-6 text-center text-xs text-ink-400 dark:text-ink-500">
+      © <span data-current-year>2026</span> PULSE Fitness Studio. All rights reserved. ·
+      <a href="${base}index.html" class="font-semibold text-volt-600 hover:underline dark:text-volt-400">Back to main site</a>
+    </footer>
+  </div>`;
 };
