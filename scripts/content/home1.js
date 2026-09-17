@@ -322,7 +322,7 @@ module.exports = function home1(base) {
     </section>
 
     <!-- ============ CTA BAND ============ -->
-    <section class="mx-auto max-w-7xl px-5 pb-20 sm:px-8">
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8">
       <div class="relative overflow-hidden rounded-3xl bg-ink-950 px-8 py-16 text-center sm:px-16">
         <img src="${base}assets/images/banners/cta-band.jpg" class="absolute inset-0 h-full w-full object-cover opacity-20" alt="" />
         <div class="absolute inset-0 bg-ink-950/80"></div>
