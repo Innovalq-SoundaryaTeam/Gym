@@ -294,8 +294,18 @@
         var title = form.getAttribute("data-success-title");
         if (title) {
           showToast(title, form.getAttribute("data-success-text") || "");
-          form.reset();
         }
+        var successEl = form.querySelector("[data-form-success]");
+        if (successEl) {
+          successEl.classList.remove("hidden");
+          successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          form.querySelectorAll("input, select, textarea").forEach(function (inp) {
+            inp.addEventListener("input", function () {
+              successEl.classList.add("hidden");
+            }, { once: true });
+          });
+        }
+        form.reset();
         var redirect = form.getAttribute("data-redirect");
         if (redirect) {
           // Login/register forms: only navigate once required fields pass
@@ -307,6 +317,23 @@
           // page they actually wanted (e.g. Book Classes) after logging in.
           var next = new URLSearchParams(window.location.search).get("next");
           window.location.href = next || redirect;
+        }
+      });
+    });
+
+    /* ---------------- Social login demo buttons ---------------- */
+    document.querySelectorAll("[data-social-auth]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var provider = btn.textContent.trim() || "Social account";
+        showToast("Login successful!", "Logged in via " + provider + ".");
+        var parentWrap = btn.closest("div").parentElement;
+        if (parentWrap) {
+          var successEl = parentWrap.querySelector("[data-form-success]");
+          if (successEl) {
+            successEl.classList.remove("hidden");
+            successEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }
         }
       });
     });

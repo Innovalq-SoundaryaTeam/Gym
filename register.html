@@ -77,8 +77,8 @@
 <a href="trainers.html" class="nav-link ">Trainers</a>
 <a href="blog.html" class="nav-link ">Blog</a>
 <a href="membership.html" class="nav-link ">Membership</a>
-<a href="dashboard/index.html" class="nav-link ">Dashboard</a>
 <a href="contact.html" class="nav-link ">Contact</a>
+<a href="dashboard/index.html" class="nav-link ">Dashboard</a>
       </nav>
 
       <div class="hidden items-center gap-2 lg:flex">
@@ -146,12 +146,12 @@
     </div>
 
     <div class="border-b border-ink-100 py-1 dark:border-ink-800">
-      <a href="dashboard/index.html" class="flex items-center justify-between py-3 text-base font-semibold text-ink-800 dark:text-ink-100">Dashboard</a>
+      <a href="contact.html" class="flex items-center justify-between py-3 text-base font-semibold text-ink-800 dark:text-ink-100">Contact</a>
       
     </div>
 
     <div class="border-b border-ink-100 py-1 dark:border-ink-800">
-      <a href="contact.html" class="flex items-center justify-between py-3 text-base font-semibold text-ink-800 dark:text-ink-100">Contact</a>
+      <a href="dashboard/index.html" class="flex items-center justify-between py-3 text-base font-semibold text-ink-800 dark:text-ink-100">Dashboard</a>
       
     </div>
       <div class="mt-5 flex flex-col gap-3">
@@ -183,7 +183,16 @@
           <h1 class="mt-4 text-3xl font-extrabold">Start your free trial.</h1>
           <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">No credit card required for your first 2 weeks.</p>
 
-          <form class="mt-8 space-y-5" data-redirect="dashboard/index.html">
+          <form class="mt-8 space-y-5" data-success-title="Signup successful!" data-success-text="Your trial account has been created.">
+            <div data-form-success class="hidden rounded-2xl border border-volt-400/40 bg-volt-400/10 p-4 text-center">
+              <div class="flex items-center justify-center gap-2 text-volt-600 dark:text-volt-300 font-bold text-base">
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-volt-400 text-ink-950">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 13 10 18 19 7"/></svg>
+                </span>
+                <span>Signup successful!</span>
+              </div>
+              <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">Welcome to PULSE Fitness Studio. Your trial account is ready.</p>
+            </div>
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="label">First Name</label>

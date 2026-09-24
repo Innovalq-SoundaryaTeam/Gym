@@ -74,7 +74,16 @@
           <h1 class="mt-4 text-3xl font-extrabold">Welcome back.</h1>
           <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">Log in to book classes, track attendance and view your workout plan.</p>
 
-          <form class="mt-8 space-y-5" data-redirect="dashboard/index.html">
+          <form class="mt-8 space-y-5" data-success-title="Login successful!" data-success-text="Welcome back to PULSE Fitness Studio.">
+            <div data-form-success class="hidden rounded-2xl border border-volt-400/40 bg-volt-400/10 p-4 text-center">
+              <div class="flex items-center justify-center gap-2 text-volt-600 dark:text-volt-300 font-bold text-base">
+                <span class="flex h-6 w-6 items-center justify-center rounded-full bg-volt-400 text-ink-950">
+                  <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="5 13 10 18 19 7"/></svg>
+                </span>
+                <span>Login successful!</span>
+              </div>
+              <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">Welcome back to PULSE Fitness Studio.</p>
+            </div>
             <div>
               <label class="label">Email Address</label>
               <input type="email" required placeholder="you@example.com" class="input" />
@@ -101,8 +110,8 @@
             <div class="h-px flex-1 divider border-t"></div>
           </div>
           <div class="grid grid-cols-2 gap-3">
-            <button class="btn-outline">Google</button>
-            <button class="btn-outline">Apple</button>
+            <button type="button" data-social-auth class="btn-outline">Google</button>
+            <button type="button" data-social-auth class="btn-outline">Apple</button>
           </div>
 
           <p class="mt-8 text-center text-sm text-ink-500 dark:text-ink-400">
